@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Delete Patient Contracts</title>
+    </head>
+    <body>
+        <form action="" method="POST">
+            <label for="pid">Enter patient ID:</label>
+            <select name="pid">
+                {% for id in pids %}
+                  <option value="{{ id }}">{{ id }}</option>
+                {% endfor %}
+            </select><br/>
+            <input type="submit" value="Assign Exam"/>
+        </form>
+    </body>
+</html>

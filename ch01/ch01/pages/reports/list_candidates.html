@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Sign-up Form Submit</title>
+    </head>
+    <body>
+        <table>
+            {% for rec in records %}
+                <tr>
+                    <td>{{ rec[0]}}</td>
+                    <td>{{ rec[1]}}</td>
+                    <td>{{ rec[2]}}</td>
+                    <td>{{ rec[3]}}</td>
+                    <td>{{ rec[4]}}</td>
+                    <td>{{ rec[5]}}</td>
+                    <td><a href="/signup/approve?id={{rec[0]}}">Approve</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>

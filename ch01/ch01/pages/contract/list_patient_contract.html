@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>List of Contracts</title>
+    </head>
+    <body>
+        <h1>List of Contracts</h1>
+        <table>
+            {% for c in contracts %}
+                <tr>
+                    <td>{{ c[0]}}</td>
+                    <td>{{ c[1]}}</td>
+                    <td>{{ c[2]}}</td>
+                    <td>{{ c[3]}}</td>
+                    <td>{{ c[4]}}</td>
+                    <td>{{ c[5]}}</td>
+                    <td>{{ c[6]}}</td>
+                    <td>{{ c[7]}}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>

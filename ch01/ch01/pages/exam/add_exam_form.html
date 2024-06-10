@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Add Question Form</title>
+    </head>
+    <body>
+        <h3>Add Exam Item</h3>
+        <form action="/exam/item/add" method="POST">
+            <label for="qid">Enter exam id:</label>
+            <select name="qid">
+                {% for id in qids %}
+                  <option value="{{ id }}">{{ id }}</option>
+                {% endfor %}
+            </select><br/><br/>
+            <fieldset id="qtyp1">
+                <hr/>
+                <input type="radio" name="question_type" value="1">Multiple Choice
+                <hr/>
+                <p>Question:&nbsp;&nbsp;<em><textarea name="mchoiceq" rows="2" cols="120"></textarea></em></p>
+                &nbsp;&nbsp;&nbsp;<p><input type="checkbox" name="answers" value="a">(a)&nbsp;&nbsp;<em><textarea name="choice1" rows="2" cols="120"></textarea></em></p>
+                &nbsp;&nbsp;&nbsp;<p><input type="checkbox" name="answers" value="b">(b)&nbsp;&nbsp;<em><textarea name="choice2" rows="2" cols="120"></textarea></em></p>
+                &nbsp;&nbsp;&nbsp;<p><input type="checkbox" name="answers" value="c">(c)&nbsp;&nbsp;<em><textarea name="choice3" rows="2" cols="120"></textarea></em></p>
+                &nbsp;&nbsp;&nbsp;<p><input type="checkbox" name="answers" value="d">(d)&nbsp;&nbsp;<em><textarea name="choice4" rows="2" cols="120"></textarea></em></p>
+                
+            </fieldset>
+        
+            <fieldset id="qtype2">
+                <hr/>
+                <input type="radio" name="question_type" value="2">Essay
+                <hr/>
+                <p>Question:&nbsp;&nbsp;<em><textarea name="essayq" rows="3" cols="120"></textarea></em></p>
+                <p>Answer:&nbsp;&nbsp;&nbsp;<em><textarea name="ans_essay" rows="3" cols="120"></textarea></em></p>
+            </fieldset>
+            <input type="submit" value="Add item"/>
+        </form>
+    </body>
+</html>

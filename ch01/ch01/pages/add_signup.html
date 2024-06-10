@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Sign-up Form</title>
+    </head>
+    <body>
+        <form action="/signup/submit" method="POST">
+            <label for="username">Enter Username:</label>
+            <input type="text" name="username" value="" required><br/>
+            <label for="password">Enter Password:</label>
+            <input type="text" name="password" value="" required><br/>
+            <label for="utype">Enter User type:</label>
+            <select name="utype">
+                <option value="1">Administrator</option>
+                <option value="2">Counselor</option>
+                <option value="3" default>Patient</option><br/>
+            </select><br/>
+            <label for="firstname">Enter Firstname:</label>
+            <input type="text" name="firstname" value="" required><br/>
+            <label for="lastname">Enter Lastname:</label>
+            <input type="text" name="lastname" value="" required><br/>
+            <label for="cid">Enter Counselor ID (if counselor):</label>
+            <input type="text" name="cid" value=""><br/>
+            <input type="submit" value="Add New User"/>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Patient's Score Form</title>
+    </head>
+    <body>
+        <form action="/exam/score" method="POST">
+            <hr/>
+            <h3>Exam Score</h3>
+            <label for="qid">Enter Questionnaire ID:</label>
+            <select name="qid">
+                {% for id in qids %}
+                  <option value="{{ id }}">{{ id }}</option>
+                {% endfor %}
+            </select><br/>
+            <label for="pid">Enter patient ID:</label>
+            <select name="pid">
+                {% for id in pids %}
+                  <option value="{{ id }}">{{ id }}</option>
+                {% endfor %}
+            </select><br/>
+            <label for="score">Enter examination score:</label>
+            <input type="number" step="0.01" name="score" value="0" required><br/>
+            <label for="total">Enter total items:</label>
+            <input type="number" step="0.01" name="total" value="0" required><br/>
+            <input type="submit" value="Assign Exam"/>
+        </form>
+    </body>
+</html>

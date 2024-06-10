@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Sign-up Form</title>
+    </head>
+    <body>
+        <form action="/profile" method="POST">
+            <label for="id">Enter ID:</label>
+            <input type="number" name="id" value="{{p.id}}" required><br/>
+            <label for="name">Enter Password:</label>
+            <input type="text" name="name" value="{{p.name}}"required><br/>
+            
+            <input type="submit" value="Add New User"/>
+        </form>
+    </body>
+</html>

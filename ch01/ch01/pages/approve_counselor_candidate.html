@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Sign-up Form</title>
+    </head>
+    <body>
+        <form action="/signup/approve/{{utype}}" method="POST">
+            <hr/>
+            <h3>Counselor-specific Details</h3>
+            <label for="id">Enter user id:</label>
+            <input type="number" name="id" value="{{cnsl.id}}" required><br/>
+            <label for="age">Enter age:</label>
+            <input type="number" name="age" value="{{cnsl.age}}" required><br/>
+            <label for="position">Enter position:</label>
+            <input type="text" name="position" value="{{cnsl.position}}" required><br/>
+            <label for="prof_started">Enter professional started:</label>
+            <input type="date" name="prof_started" value="{{cnsl.prof_started}}" required><br/>
+            <hr/>
+            <h3>User-specific Details</h3>
+            <label for="username">Username:</label>
+            <input type="text" name="username" value="{{cnsl.username}}" readonly><br/>
+            <label for="password">Password:</label>
+            <input type="text" name="password" value="{{cnsl.password}}" readonly><br/>
+            <label for="utype">User type:</label>
+            <input type="text" name="utype" value="{{cnsl.utype}}" readonly><br/><br/>
+            <label for="firstname">Firstname:</label>
+            <input type="text" name="firstname" value="{{cnsl.firstname}}" readonly><br/>
+            <label for="lastname">Lastname:</label>
+            <input type="text" name="lastname" value="{{cnsl.lastname}}" readonly><br/>
+            <label for="cid">Counselor ID (if counselor):</label>
+            <input type="text" name="cid" value="{{cnsl.cid}}" readonly><br/>
+            <input type="submit" value="Approve User"/>
+        </form>
+    </body>
+</html>
