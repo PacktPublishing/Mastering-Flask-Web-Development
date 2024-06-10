@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Sign-up Form</title>
+    </head>
+    <body>
+        <form action="/signup/approve/{{utype}}" method="POST">
+            <hr/>
+            <h3>Patient-specific Details</h3>
+            <label for="id">Enter user id:</label>
+            <input type="number" name="id" value="{{pat.id}}" required><br/>
+            <label for="age">Enter age:</label>
+            <input type="number" name="age" value="{{pat.age}}" required><br/>
+            <label for="gender">Enter gender:</label>
+            <select name="gender" value="{{pat.gender}}">
+                <option value="m">Male</option>
+                <option value="f">Female</option>
+                <option value="n">Non-binary</option>
+            </select><br/>
+            <label for="cstatus">Enter civil status:</label>
+            <input type="text" name="cstatus" value="{{pat.cstatus}}" required><br/>
+            <label for="address">Enter address:</label>
+            <input type="text" name="address" value="{{pat.address}}" required><br/>
+            <label for="mobile">Enter mobile:</label>
+            <input type="text" name="mobile" value="{{pat.mobile}}" required><br/>
+            <label for="occupation">Enter occupation:</label>
+            <input type="text" name="occupation" value="{{pat.occupation}}" required><br/>
+            <label for="nationality">Enter nationality:</label>
+            <input type="text" name="nationality" value="{{pat.nationality}}" required><br/>
+            <label for="cid">Enter assigned counselor:</label>
+            <input type="text" name="cid" value="{{pat.cid}}" required><br/>
+            <label for="counsel_started">Enter start date counselling:</label>
+            <input type="date" name="counsel_started" value="{{pat.counsel_started}}" required><br/>
+            <label for="counsel_ended">Enter end date counselling:</label>
+            <input type="date" name="counsel_ended" value="{{pat.counsel_ended}}" required><br/>
+            <hr/>
+            <h3>User-specific Details</h3>
+            <label for="username">Username:</label>
+            <input type="text" name="username" value="{{pat.username}}" readonly><br/>
+            <label for="password">Password:</label>
+            <input type="text" name="password" value="{{pat.password}}" readonly><br/>
+            <label for="utype">User type:</label>
+            <input type="text" name="utype" value="{{pat.utype}}" readonly><br/><br/>
+            <label for="firstname">Firstname:</label>
+            <input type="text" name="firstname" value="{{pat.firstname}}" readonly><br/>
+            <label for="lastname">Lastname:</label>
+            <input type="text" name="lastname" value="{{pat.lastname}}" readonly><br/>
+            <input type="submit" value="Approve User"/>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Sign-up Form Submit</title>
+    </head>
+    <body>
+        <h1>Document Id: {{ docId }}</h1>
+        <table>
+            {% for exam in exams %}
+                <tr>
+                    <td>{{ exam[0]}}</td>
+                    <td>{{ exam[1]}}</td>
+                    <td>{{ exam[2]}}</td>
+                    <td>{{ exam[3]}}</td>
+                    <td>{{ exam[4]}}</td>
+                    <td>{{ exam[5]}}</td>
+                    <td>{{ exam[6]}}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>

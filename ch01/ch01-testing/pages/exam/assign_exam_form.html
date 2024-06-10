@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Exam Assignment Form</title>
+    </head>
+    <body>
+        <form action="/exam/assign" method="POST">
+            <hr/>
+            <h3>Exam Details</h3>
+            <label for="id">Enter exam id:</label>
+            <input type="number" name="id" value="" required><br/>
+            <label for="cid">Enter counselor license:</label>
+            <select name="cid">
+                {% for id in cids %}
+                   <option value="{{ id }}">{{ id }}</option>
+                {% endfor %}
+            </select><br/>
+            <label for="pid">Enter patient ID:</label>
+            <select name="pid">
+                {% for id in pids %}
+                  <option value="{{ id }}">{{ id }}</option>
+                {% endfor %}
+            </select><br/>
+            <label for="exam_date">Enter examination date:</label>
+            <input type="date" name="exam_date" value="" required><br/>
+            <label for="duration">Enter exam duration:</label>
+            <input type="text" name="duration" value="" required><br/>
+            <input type="submit" value="Assign Exam"/>
+        </form>
+    </body>
+</html>

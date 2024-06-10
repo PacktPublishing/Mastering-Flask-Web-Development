@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Sign-up Form</title>
+    </head>
+    <body>
+        <form action="/signup/approve/{{utype}}" method="POST">
+            <hr/>
+            <h3>Administrator-specific Details</h3>
+            <label for="id">Enter user id:</label>
+            <input type="number" name="id" value="{{adm.id}}" required><br/>
+            <label for="position">Enter position:</label>
+            <input type="text" name="position" value="{{adm.position}}" required><br/>
+            <label for="age">Enter age:</label>
+            <input type="number" name="age" value="{{adm.age}}" required><br/>
+            <label for="emp_date">Enter employment date:</label>
+            <input type="date" name="emp_date" value="{{adm.emp_date}}" required><br/>
+            <label for="emp_status">Enter employment status:</label>
+            <input type="text" name="emp_status" value="{{adm.emp_status}}" required><br/>
+            <hr/>
+            <h3>User-specific Details</h3>
+            <label for="username">Username:</label>
+            <input type="text" name="username" value="{{adm.username}}" readonly><br/>
+            <label for="password">Password:</label>
+            <input type="text" name="password" value="{{adm.password}}" readonly><br/>
+            <label for="utype">User type:</label>
+            <input type="text" name="utype" value="{{adm.utype}}" readonly><br/><br/>
+            <label for="firstname">Firstname:</label>
+            <input type="text" name="firstname" value="{{adm.firstname}}" readonly><br/>
+            <label for="lastname">Lastname:</label>
+            <input type="text" name="lastname" value="{{adm.lastname}}" readonly><br/>
+            <input type="submit" value="Approve User"/>
+        </form>
+    </body>
+</html>
