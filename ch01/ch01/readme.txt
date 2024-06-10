@@ -1,1 +1,51 @@
+========================================================================
+Project Name: Online Personnel Counselling System (OPCS)
+Author: Sherwin John C. Tragura
+Description: This prototype is a web-based management system for people
+  who seek help for mental health and behavioral concerns. The design leans toward an 
+  online helpdesk-type application with modules that cater to user management, patient 
+  monitoring using online written examinations to identify patient's problems, and 
+  managing the counselors.
 
+  This first application does not follow any Flask standard in managing its source 
+  codes and files. It only uses a typical Flask implementation that
+  runs any Flask components. The next chapter will provide the best practices for 
+  building Flask project directories to help manage circular import errors.
+========================================================================
+
+A. Project Directory
+
+--- ch01 (main project directory)
+   --- config - contains the decorator for database connectivity 
+              - by default, all db details are sifted from the .env file
+   --- pages - contains the Jinja templates for the contents and error pages
+   --- repository - contains the database transactions using native psycopg2 driver 
+   --- services - contains other Python transactions that utilize the repository for 
+                  generate the proper response
+   --- views - contains the Flask view functions showcasing different implementations 
+               of managing request and response data
+   --- converter - contains implementation for custom API types for Path variable types
+
+   --- __init__.py file - contains the import that settles the circular import error when importing views in main.py
+
+   --- main.py - the main module containing the Flask app instance and the setup initialization
+
+   --- tests - the pytest folder containing test files for testing Flask components
+
+B. Configuration files (choose only one)
+    .env - the default configuration file
+    .config.toml - configuration variables written in TOML (i.e., configure main.py to replace .env)
+    .config.json - configuration variables written in JSON (i.e., configure main.py to replace .env)
+    myconfig.py - configuration variables written using Python syntax (i.e., configure main.py to replace .env)
+
+C. Database Configurations
+   db_ dump - contains the opcs.sql dump file, which contains dummy test data
+
+D. Dependencies
+   --- Create a Python virtual env (e.g., ch01-env) using the venv module first before running the dependency file.
+   --- requirements.txt - contains the updated modules just run it inside your venv directory using:
+                          python -m pip install -r requirements.txt
+
+
+Running the application:
+   Run the command python main.py inside the enabled ch01-env.
