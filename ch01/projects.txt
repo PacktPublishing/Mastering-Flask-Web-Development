@@ -1,1 +1,3 @@
-
+Project for Chapter 1 (ch01):
+    --- ch01 project (original)
+    --- ch01-testing (the version for testing using Pytest)
