@@ -5,7 +5,7 @@ Description: This prototype is a web-based management system for people
  who seek help for mental health and behavioral concerns. The design leans towards an online helpdesk-type application with modules that cater to user management, patient monitoring using online written examinations to identify patient's problems, and managing the counselors.
 
  This first application does not follow any Flask standard in managing its source codes and files. It only uses a typical Flask implementation that
- runs any Flask components. The next chapter will provide the best practices for building Flask project directories that can help manage circular import errors..
+ runs any Flask components. The next chapter will provide the best practices for building Flask project directories that can help manage circular import errors.
 ========================================================================
 
 A. Project Directory
