@@ -1,1 +1,5 @@
 
+Project for Chapter 3 (ch03):
+     --- ch03 - main API-based application
+     --- ch03-client - a client web-based app (App Factory)
+     --- ch03-client-blueprint - a client web-based app (Blueprint)
