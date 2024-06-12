@@ -1,0 +1,42 @@
+{# parent error page #}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}{{ title }}{% endblock title %}</title>
+  <link rel="stylesheet" href="{{ url_for('home_bp.static', filename='/css/styles.css')}}">
+  <link rel="stylesheet" href="{{ url_for('home_bp.static', filename='/css/bootstrap.min.css')}}">
+  <script src="{{ url_for('home_bp.static', filename='js/jquery-3.6.4.js') }}"></script>
+  <script src="{{ url_for('home_bp.static', filename='js/bootstrap.bundle.min.js') }}"></script>
+</head>
+
+<body>
+  <div class="row justify-content-center">
+    <div class="col-md-12 col-sm-12">
+        <div class="card shadow-lg border-0 rounded-lg mt-5 mx-auto" style="width: 30rem;">
+            <h3 class="card-header display-1 text-muted text-center">
+              {% block status %}
+    
+              {% endblock status %}
+            </h3>
+
+            <span class="card-subtitle mb-2 text-muted text-center">
+              {% block content %}
+    
+              {% endblock content %}
+            </span>
+
+            <div class="card-body mx-auto">
+                <a type="button" href="{{ url_for('home_bp.menu')}}"
+                class="btn btn-sm btn-info text-white"> Back To Menu </a>
+            </div>
+        </div>
+    </div>
+</div>
+  
+
+  
+  
+</body>
+</html>
