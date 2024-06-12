@@ -28,5 +28,6 @@ C. Dependencies
                   python -m pip install -r requirements.txt
 
 D. Running the application:
+   --- Run first ch03 application before running this client application.
    --- Run the command python main.py inside the enabled ch03-env.
    --- Access the URL using a browser.
