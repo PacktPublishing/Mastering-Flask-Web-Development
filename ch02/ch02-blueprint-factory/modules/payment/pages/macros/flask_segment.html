@@ -1,0 +1,36 @@
+{% macro render_error_flash(class_id) %}
+    {% with errors = get_flashed_messages(category_filter=["error"]) %}
+        {% if errors %}
+            <p id="{{class_id}}" class="w-lg-50">
+            {% for msg in errors %}
+                {{ msg }}
+            {% endfor %}
+            </p>
+        {% endif %}
+    {% endwith %}
+{% endmacro %}
+
+{% macro render_success_flash(class_id)%}
+    {% with success = get_flashed_messages(category_filter=["success"]) %}
+        {% if success %}
+            <p id="{{class_id}}" class="w-lg-50 text-muted">
+            {% for msg in success %}
+                {{ msg }}
+            {% endfor %}
+            </p>
+        {% endif %}
+    {% endwith %} 
+{% endmacro %}
+
+
+{%macro render_list_flash()%}
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <h1 class="display-4 ">
+                {% for message in messages %}
+                    {{ message }}
+                {% endfor %}
+            </h1>
+        {% endif %}
+    {% endwith %}
+{%endmacro%}
