@@ -1,0 +1,11 @@
+2024-06-12 08:38:26 INFO login login_db_auth add_db_auth GET view executed
+2024-06-12 08:38:26 INFO main return_response login_db_auth done executing
+2024-06-12 08:38:26 INFO main teardown_database removing the db connection as context data
+2024-06-12 08:38:26 INFO main get_database storing the db connection as context data
+2024-06-12 08:38:26 INFO main teardown_database removing the db connection as context data
+2024-06-12 08:38:26 INFO main get_database storing the db connection as context data
+2024-06-12 08:38:26 INFO main get_database storing the db connection as context data
+2024-06-12 08:38:26 INFO main get_database storing the db connection as context data
+2024-06-12 08:38:26 INFO main teardown_database removing the db connection as context data
+2024-06-12 08:38:26 INFO main teardown_database removing the db connection as context data
+2024-06-12 08:38:26 INFO main teardown_database removing the db connection as context data

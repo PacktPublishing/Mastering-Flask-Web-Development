@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Add Order Page</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css')}}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css')}}">
+        <script src="{{ url_for('static', filename='js/jquery-3.6.4.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+    </head>
+    <body>
+        <section class="position-relative py-4 py-xl-5">
+            <div class="container position-relative">
+                <div class="row mb-5">
+                    <div class="col-md-8 col-xl-6 text-center mx-auto">
+                        <h2 class="display-3">Order Details</h2>
+                        <p class="w-lg-50"><strong><em>{{ session['username']}}</em></strong> is logged in.</p>  
+                    </div>
+                </div>
+                <div class="row d-flex justify-content-center">
+                    <div class="col-md-6 col-xl-4">
+                        <div class="card">
+                            <div class="card-body text-center d-flex flex-column align-items-center">
+                               
+                                <form action = "{{ request.path }}" method = "post">
+                                    <div class="mb-3"><select class="form-control" name="pid">
+                                        {% for p in products%}
+                                         <option value="{{p[0]}}">{{p[1]}}</option>
+                                        {% endfor %}
+                                    </select></div>
+                                    <div class="mb-3"><select class="form-control" name="cid">
+                                        {% for c in customers%}
+                                         <option value="{{c[0]}}">{{c[1]}}</option>
+                                        {% endfor %}
+                                    </select></div>
+                                    <div class="mb-3"><input class="form-control" type="text" name="order_no" placeholder="Order No." /></div>
+                                    <div class="mb-3"><input class="form-control" type="date" name="order_date"/></div>
+                                   
+                                    <div class="mb-3"><button class="btn btn-info font-weight-bold d-block w-100" type="submit">Add Order</button></div>
+                                   
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </section>
+    </body>
+</html>

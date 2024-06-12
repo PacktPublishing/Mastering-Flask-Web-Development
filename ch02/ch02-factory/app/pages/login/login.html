@@ -1,0 +1,38 @@
+{% from "macros/flask_segment.html" import render_error_flash, render_success_flash with context %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Add Login Page</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css')}}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css')}}">
+        <script src="{{ url_for('static', filename='js/jquery-3.6.4.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+    </head>
+    <body>
+      <section class="position-relative py-4 py-xl-5">
+        <div class="container position-relative">
+            <div class="row mb-5">
+                <div class="col-md-8 col-xl-6 text-center mx-auto">
+                    <h2 class="display-3">User Login</h2>
+                      {{ render_error_flash('error-id')}}
+                      {{ render_success_flash('success-id')}}
+                    
+                </div>
+            </div>
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-6 col-xl-4">
+                    <div class="card">
+                        <div class="card-body text-center d-flex flex-column align-items-center">
+                            <form action = "{{ request.path }}" method = "post">
+                                <div class="mb-3"><input class="form-control" type="text" name="username" placeholder="Username" /></div>
+                                <div class="mb-3"><input class="form-control" type="password" name="password" placeholder="Password" /></div>
+                                <div class="mb-3"><button class="btn btn-info font-weight-bold d-block w-100" type="submit">Login</button></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </section>
+    </body>
+</html>

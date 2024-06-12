@@ -1,0 +1,84 @@
+{% from "macros/flask_segment.html" import render_list_flash with context %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>List Login Accounts</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css')}}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css')}}">
+        <script src="{{ url_for('static', filename='js/jquery-3.6.4.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+    </head>
+    <body>
+        <section class="position-relative py-4 py-xl-5">
+            <div class="container position-relative">
+                <div class="row d-flex">
+                    <div class="col-md-8 col-xl-6 text-center mx-auto">
+        
+                        {{render_list_flash()}}
+                      
+                        <p class="w-lg-50"><strong><em>{{ session['username']}}</em></strong> is logged in.</p>  
+                     </div>
+                     
+                </div>
+                <div class="row d-flex justify-content-center">
+                    <div class="container position-relative">
+                        <div>
+                            <div class="table-responsive">
+                                <table class="table">
+          <thead class="black white-text">
+            <tr>
+              <th scope="col">ID#</th>
+              <th scope="col">Username</th>
+              <th scope="col">Password</th>
+              <th scope="col">User Type</th>
+            </tr>
+          </thead>
+          <tbody>
+        
+            {% for u in users %}
+                    <tr>
+                        <th scope="row">{{u.id}}</td>
+                        <td>{{u.username}}</td>
+                        <td>{{u.password}}</td>
+                        <td>{{u.user_type}}</td>
+                    </tr>
+                {% endfor %}
+            
+          </tbody>
+        </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div>
+                            <footer class="text-center py-4">
+                                <div class="container">
+                                    <div class="row row-cols-1 row-cols-lg-3">
+                                        <div class="col">
+                                            <p class="text-muted my-2">Copyright © 2023 Packt Publishing</p>
+                                        </div>
+                                        <div class="col">
+                                            <ul class="list-inline my-2">
+                                                <li class="list-inline-item"><a class="link-secondary" href="#">Mastering Flask Development -</a></li>
+                                                <li class="list-inline-item"><a class="link-secondary" href="#">Python</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="col">
+                                            <ul class="list-inline my-2">
+                                                <li class="list-inline-item"><a class="link-secondary" href="#">Sherwin John Tragura</a></li>
+                
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </footer>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>
+

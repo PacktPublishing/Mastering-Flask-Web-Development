@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Main Menu</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css')}}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css')}}">
+        <script src="{{ url_for('static', filename='js/jquery-3.6.4.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+    </head>
+    <body>
+        <div class="container py-4 py-xl-5">
+            <div class="row mb-5">
+                <div class="col-md-8 col-xl-6 text-center mx-auto">
+                    <h2 class="display-4">Supply Management System Menu</h2>
+                    <p class="w-lg-50"><strong><em>{{ session['username']}}</em></strong> is logged in.</p>
+                </div>
+            </div>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3">
+                <div class="col">
+                    <div class="d-flex p-3">
+                        
+                        <div class="px-2 text-center">
+                            <h5 class="mb-0 mt-1"><a href="{{url_for('add_product')}}">Add Product</a></h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="d-flex p-3">
+                        
+                        <div class="px-2 text-center">
+                            <h5 class="mb-0 mt-1"><a href="{{url_for('add_customer')}}">Add Customer</a></h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="d-flex p-3">
+                        
+                        <div class="px-2 text-center">
+                            <h5 class="mb-0 mt-1"><a href="{{url_for('add_order')}}">Add Order</a></h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="d-flex p-3">
+                        
+                        <div class="px-2 text-center">
+                            <h5 class="mb-0 mt-1"><a href="{{url_for('add_payment')}}">Add Payment</a></h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="d-flex p-3">
+                       
+                        <div class="px-2 text-center">
+                            <h5 class="mb-0 mt-1"><a href="#">Add Shipping</a></h5>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3">
+                <div class="col">
+                    <div class="d-flex p-3">
+                       
+                        <div class="px-2">
+                            <h5 class="mb-0 mt-1"><a href="#">Add Delivery Officer</a></h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="d-flex p-3">
+                       
+                        <div class="px-2 text-center">
+                            <h5 class="mb-0 mt-1"><a href="#">List of Products</a></h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="d-flex p-3">
+                       
+                        <div class="px-2 text-center">
+                            <h5 class="mb-0 mt-1"><a href="#">List of Orders</a></h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="d-flex p-3">
+                       
+                        <div class="px-2 text-center">
+                            <h5 class="mb-0 mt-1"><a href="#">List of Payments</a></h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="d-flex p-3">
+                       
+                        <div class="px-2 text-center">
+                            <h5 class="mb-0 mt-1"><a href="#">List of Shipping</a></h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3">
+                <div class="col">
+                    <div class="d-flex p-3">
+                       
+                        <div class="px-2 text-center">
+                            <h5 class="mb-0 mt-1"><a href="{{url_for('logout')}}">Logout</a></h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
