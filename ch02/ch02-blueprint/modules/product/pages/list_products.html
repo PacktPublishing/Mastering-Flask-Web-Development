@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>List of Products</title>
+        <link rel="stylesheet" href="{{ url_for('product_bp.static', filename='css/styles.css')}}">
+        <link rel="stylesheet" href="{{ url_for('product_bp.static', filename='css/bootstrap.min.css')}}">
+        <script src="{{ url_for('product_bp.static', filename='js/jquery-3.6.4.js') }}"></script>
+        <script src="{{ url_for('product_bp.static', filename='js/bootstrap.bundle.min.js') }}"></script>
+    </head>
+    <body>
+        <table>
+        {% for p in prods %}
+            <tr>
+                <td>{{p.id}}</td>
+                <td>{{p.name}}</td>
+                <td>{{p.price}}</td>
+                <td>{{p.code}}</td>
+            </tr>
+        {% endfor %}
+        </table>
+    </body>
+</html>
