@@ -39,7 +39,7 @@ C. Database Configurations
 D. Dependencies
    --- Create a python virtual env (e.g., ch01-env) using venv module first before running the dependency file.
    --- requirements.txt - contains the updates modules just run it inside your venv directory using:
-                          python -m pip install -r requirements.txt
+                          python -m pip install -r requirements.txt --upgrade
 
 
 Running the application:
