@@ -37,6 +37,7 @@ B. Configuration files (choose only one)
 
 C. Database Configurations
    db_ dump - contains the opcs.sql dump file, which contains dummy test data
+            - database platform is PostgreSQL 
 
 D. Dependencies
    --- Create a Python virtual env (e.g., ch01-env) using the venv module first before running the dependency file.
