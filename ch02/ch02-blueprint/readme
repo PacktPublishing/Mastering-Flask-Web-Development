@@ -30,6 +30,7 @@ B. Configuration files
    
 C. Database Configurations
    db_dump - contains the sms.sql dump file, which contains dummy test data
+           - database platform is PostgreSQL 
 
 D. Dependencies
    --- Create a Python virtual env (e.g., ch02-env) using the venv module first before running the dependency file.
