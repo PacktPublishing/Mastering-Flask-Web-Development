@@ -1,0 +1,32 @@
+========================================================================
+Project Name: Online Pizza Ordering System (OPOS)- Client (Blueprint)
+Author: Sherwin John C. Tragura
+Description: This prototype is a web-based client application for the ch03 
+    project. 
+
+    This project uses the Blueprint approach in managing the project directories.
+========================================================================
+
+A. Project Directory
+
+--- ch03-client-blueprint (main project directory)
+      --- app  - contains all the  modules that will consume the API from ch03
+               - contains the __init__.py - the heart of the applications
+                     - contains all the initialization, setups, and   
+                          configurations
+                     - creates the Flask instance and returns it to main.py
+              
+      --- main.py -  the main module that imports the create_app() from 
+          modules/__init__.py 
+
+B. Configuration files 
+    config_dev.toml - configuration variables written in TOML for development stage
+
+C. Dependencies
+   --- Use the ch03-env of the ch03 project
+   --- requirements.txt - contains the updated modules just run it inside your venv directory using:
+                  python -m pip install -r requirements.txt
+
+D. Running the application:
+   --- Run the command python main.py inside the enabled ch03-env.
+   --- Access the URL using a browser.
