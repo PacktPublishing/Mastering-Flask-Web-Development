@@ -1,0 +1,16 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Online Voting System </title>
+  </head>
+  <body>
+    <h1>Election Complaint Desk</h1>
+    <form action = "{{ request.path }}" method = "post">
+      <label for="text">Input voter id: </label>
+      <input type="text" name="voter_id"><br/>
+      <label for="text">Input complaint: </label>
+      <textarea name="complaint" id="" cols="30" rows="10"></textarea><br/>
+      <input type="submit" value="Send complaint"><br/>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Online Voting System</title>
+  </head>
+  <body>
+    <h1>Add Vote Tally Per Precinct</h1>
+    <form id="vote_form">
+      <label for="text">Input election id: </label>
+      <input type="number" id="election_id"><br/>
+      <label for="text">Input precinct: </label>
+      <input type="text" id="precinct"><br/>
+      <label for="text">Input final tally: </label>
+      <input type="number" id="final_tally"><br/>
+      <label for="text">Input approved date: </label>
+      <input type="date" id="approved_date"><br/>
+      <input type="submit" value="Enter"><br/>
+    </form>
+    <br/>
+    <div id="add_log"></div>
+    <br>
+    <script>
+      const add_log = (message) => {
+        document.getElementById('add_log').innerHTML += `<span>${message}</span><br>`;
+      };
+
+      const socket = new WebSocket('ws://' + location.host + '/ch05/vote/save/ws');
+      socket.addEventListener('message', msg => {
+        add_log('server: ' + msg.data);
+      });
+      
+      document.getElementById('vote_form').onsubmit = data => {
+            data.preventDefault();
+            const election_id = document.getElementById('election_id');
+            const precinct = document.getElementById('precinct');
+            const final_tally = document.getElementById('final_tally');
+            const approved_date = document.getElementById('approved_date');
+
+            var vote_count = new Object();
+            vote_count.election_id = election_id.value;
+            vote_count.precinct  = precinct.value;
+            vote_count.final_tally = final_tally.value;
+            vote_count.approved_date = approved_date.value;
+            var vote_count_json = JSON.stringify(vote_count);
+            
+            add_log('client: ' + vote_count_json);
+            socket.send(vote_count_json);
+            election_id.value = '';
+            precinct.value = '';
+            final_tally.value = '';
+            approved_date.value = '';
+      };
+    </script>
+  </body>
+</html>

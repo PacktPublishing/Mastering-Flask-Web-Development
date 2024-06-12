@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>Election Complaints</h2>
+    <div id="add_log"></div>
+    <br>
+    <script>
+        var source = new EventSource("/ch05/elec/comaplaint/stream");
+        source.onmessage = function (event) {
+            add_log(event.data);
+        };
+
+        const add_log = (message) => {
+            document.getElementById('add_log').innerHTML += `<span>${message}</span><br>`;
+        };
+    </script>
+</body>
+</html>
