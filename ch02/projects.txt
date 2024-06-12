@@ -1,1 +1,4 @@
-
+Project for Chapter 2 (ch02):
+     --- ch02-factory (Using Application Factory)
+     --- ch02-blueprint (Using Blueprint)
+     --- ch02-blueprint-factory (Using Blueprint and Factory)
