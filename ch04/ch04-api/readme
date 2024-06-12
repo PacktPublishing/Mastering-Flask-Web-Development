@@ -1,0 +1,35 @@
+========================================================================
+Project Name: Online Complaint Management System (OCMS)
+Author: Sherwin John C. Tragura
+Description: This prototype is an API-based version of the complaint system that 
+    attempts to apply caching and session handling to Flask's class-based views.
+
+    This project uses the Blueprint approach in managing the project directories.
+========================================================================
+
+A. Project Directory
+
+--- ch04-api (main project directory)
+      --- modules  - contains all the Blueprint modules and their respective components, 
+                        such API endpoint functions, repository, and services
+               - contains the forms directory that contains Flask-WTF form models for web forms 
+      
+      --- flask_session - contains Flask-Session session files
+      --- model - contains model classes and database configurations
+     
+B. Configuration files 
+    --- config_dev.toml - configuration variables written in TOML for development stage
+    
+C. Dependencies
+   --- Create a Python virtual env (e.g., ch04-env) using the venv module first before running the dependency files
+   --- requirements.txt - contains the updated modules just run it inside your venv directory using:
+                  python -m pip install -r requirements.txt
+
+D. Running the application:
+   --- Generate first the PostgreSQL table schema using the following Flask-Migrate commands:
+         1. python -m flask --app manage.py db init
+         2. python -m flask --app manage.py db migrate -m "Initial migration."
+         3. python -m flask --app manage.py db upgrade
+            python -m flask --app manage.py db downgrade (if schema needs update but modify the run_migrations_****() in env.py if necessary)
+
+   --- Run the command python main.py inside the enabled ch04-env.
