@@ -1,0 +1,4 @@
+SQLALCHEMY_DATABASE_URI = "postgresql://postgres:admin2255@localhost:5433/sms"
+SECRET_KEY = "SpOn1ZyV4KE2FTlAUrWRZ_h7o5s"
+FLASK_DEBUG = true
+TESTING = true
