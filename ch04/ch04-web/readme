@@ -1,0 +1,47 @@
+========================================================================
+Project Name: Online Complaint Management System (OCMS)
+Author: Sherwin John C. Tragura
+Description: This prototype is a web-based complaint system that tends to   
+     accept, manage, and respond to user feedback for a generic customer service module. The goal is to showcase essential external Flask modules that provide optimized performance, faster implementation, and more secure transactions than its base equivalent.
+
+     This project uses the Blueprint approach in managing the project directories.
+========================================================================
+
+A. Project Directory
+
+--- ch04-web (main project directory)
+      --- modules  - contains all the Blueprint modules and their respective components, 
+                        such API endpoint functions, repository, and services
+               - contains the forms directory that contains Flask-WTF form models for web forms 
+      --- cache_dir - contains all cache files created by Flask-Caching module
+      --- flask_session - contains Flask-Session session files
+      --- migrations - contains alembic and all Flask-Migration related files
+
+      --- model - contains model classes and database configurations
+      --- pages - supposedly for error pages
+      --- resources - supposedly for generic static files
+
+B. Configuration files 
+    --- config_dev.toml - configuration variables written in TOML for development stage
+
+    --- mail_config.py - provides the Flask-Mail instance
+    --- main_cache.py - provides the Flask-Caching instance
+    --- manage.py - provides the Flask-Migrate implementation and setup
+    
+C. Database Configurations
+   db_dump - contains the ocms.sql dump file, which contains dummy test data
+           - database platform is PostgreSQL 
+
+D. Dependencies
+   --- Create a Python virtual env (e.g., ch04-env) using the venv module first before running the dependency files
+   --- requirements.txt - contains the updated modules just run it inside your venv directory using:
+                  python -m pip install -r requirements.txt
+
+E. Running the application:
+   --- Generate first the PostgreSQL table schema using the following Flask-Migrate commands:
+         1. python -m flask --app manage.py db init
+         2. python -m flask --app manage.py db migrate -m "Initial migration."
+         3. python -m flask --app manage.py db upgrade
+            python -m flask --app manage.py db downgrade (if schema needs update but modify the run_migrations_****() in env.py if necessary)
+
+   --- Run the command python main.py inside the enabled ch04-env.

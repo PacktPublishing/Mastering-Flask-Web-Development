@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Online Complaint Management System</title>
+    {% block styles %}
+        {{ bootstrap.load_css() }}
+    {% endblock %}
+  
+  </head>
+  <body>
+    <section class="position-relative py-4 py-xl-5">
+        <div class="container position-relative">
+            <div class="row mb-5">
+                <div class="col-md-8 col-xl-6 text-center mx-auto">
+                    <h2 class="display-3">Login  Account</h2>
+                    <p class="w-lg-50"><strong><em>{{ session['username']}}</em></strong> is logged in.</p>  
+                </div>
+                
+            </div>
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-6 col-xl-4">
+                    <div class="card">
+                        <div class="card-body text-center d-flex flex-column align-items-center">
+                           
+    <form action = "{{ request.path }}" method = "post">
+        {{ form.csrf_token }}
+        
+        <div class="mb-3">{{ form.username(size=25, placeholder='Username', class="form-control") }}</div>
+       
+
+        {% if form.username.errors %}
+            <ul>
+                {% for error in form.username.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+       
+        <div class="mb-3"> {{ form.password(size=25, placeholder='Password', class="form-control") }}</div>
+        
+      
+        {% if form.password.errors %}
+            <ul>
+                {% for error in form.password.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+           
+        <div class="mb-3"> {{ form.user_type(class="form-control") }}</div>
+        
+
+        {% if form.user_type.errors %}
+            <ul>
+                {% for error in form.user_type.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        <div class="mb-3"><button class="btn btn-info font-weight-bold d-block w-100" type="submit">Add Login Account</button></div>
+      </form>
+          </div>
+       </div>
+     </div>
+   </div>
+</div>
+</section>
+  
+
+    {% block scripts %}
+        {{ bootstrap.load_js() }}
+    {% endblock %}
+</body>
+</html>

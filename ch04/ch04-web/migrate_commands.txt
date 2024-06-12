@@ -1,0 +1,3 @@
+python -m flask --app manage.py db init
+python -m flask --app manage.py db migrate -m "Initial migration."
+python -m flask --app manage.py db upgrade

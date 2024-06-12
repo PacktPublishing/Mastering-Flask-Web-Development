@@ -1,0 +1,19 @@
+SQLALCHEMY_DATABASE_URI = "postgresql://postgres:admin2255@localhost:5433/ocms"
+SECRET_KEY = "SpOn1ZyV4KE2FTlAUrWRZ_h7o5s"
+
+SESSION_LIFETIME = true
+SESSION_TYPE = "filesystem"
+SESSION_FILE_THRESHOLD = 600
+SESSION_PERMANENT = true
+
+CACHE_TYPE = "FileSystemCache"
+CACHE_DEFAULT_TIMEOUT = 300
+CACHE_DIR = "./cache_dir/"
+CACHE_THRESHOLD = 800
+
+MAIL_SERVER ="smtp.gmail.com"
+MAIL_PORT = 465
+MAIL_USERNAME = "sjctrags@gmail.com"
+MAIL_PASSWORD = "uqjqwbchxbofygmt"
+MAIL_USE_TLS = false
+MAIL_USE_SSL = true

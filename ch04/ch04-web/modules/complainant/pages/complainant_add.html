@@ -1,0 +1,175 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Online Complaint Management System</title>
+    {% block styles %}
+    {{ bootstrap.load_css() }}
+{% endblock %}
+  </head>
+  <body>
+    <section class="position-relative py-4 py-xl-5">
+        <div class="container position-relative">
+            <div class="row mb-5">
+                <div class="col-md-8 col-xl-6 text-center mx-auto">
+                    <h2 class="display-3">Complainant Profile</h2>
+                    <p class="w-lg-50"><strong><em>{{ session['username']}}</em></strong> is logged in.</p>  
+                </div>
+                
+            </div>
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-6 col-xl-4">
+                    <div class="card">
+                        <div class="card-body text-center d-flex flex-column align-items-center">
+    <form action = "{{ request.path }}" method = "post">
+     
+        {{ form.csrf_token }}
+
+        <div class="mb-3">{{ form.id(size=1, class="form-control") }}</div>
+            
+       
+
+        {% if form.id.errors %}
+            <ul>
+                {% for error in form.id.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        <div class="mb-3"> {{ form.firstname(size=50, placeholder='Firstname', class="form-control") }}</div>
+           
+     
+       
+
+        {% if form.firstname.errors %}
+            <ul>
+                {% for error in form.username.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        
+            <div class="mb-3"> {{ form.middlename(size=50, placeholder='Middlename', class="form-control") }}</div>
+         
+        
+
+        {% if form.middlename.errors %}
+            <ul>
+                {% for error in form.middlename.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+       
+            <div class="mb-3"> {{ form.lastname(size=50, placeholder='Lastname', class="form-control") }}</div>
+          
+       
+
+        {% if form.lastname.errors %}
+            <ul>
+                {% for error in form.lastname.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+      
+            <div class="mb-3"> {{ form.mobile(size=50, placeholder='+63-XXX-XXX-XXXX', class="form-control") }}</div>
+           
+       
+
+        {% if form.mobile.errors %}
+            <ul>
+                {% for error in form.mobile.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+       
+        <div class="mb-3"> {{ form.email(size=50, placeholder='xxxxxxx@xxxx.xxx', class="form-control") }}</div>
+          
+      
+
+        {% if form.email.errors %}
+            <ul>
+                {% for error in form.email.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+
+        <div class="mb-3"> {{ form.address(size=50, placeholder='Address', class="form-control") }}</div>
+          
+      
+
+        {% if form.address.errors %}
+            <ul>
+                {% for error in form.address.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        <div class="mb-3"> {{ form.zipcode(size=50, placeholder='Zip Code', class="form-control") }}</div>
+          
+      
+
+        {% if form.zipcode.errors %}
+            <ul>
+                {% for error in form.zipcode.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+     
+        <div class="mb-3"> {{ form.status(size=1, class="form-control") }}</div>
+          
+      
+
+        {% if form.status.errors %}
+            <ul>
+                {% for error in form.status.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+     
+        <div class="mb-3"> {{ form.date_registered(size=50, class="form-control") }}</div>
+          
+      
+
+        {% if form.date_registered.errors %}
+            <ul>
+                {% for error in form.date_registered.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        
+        
+
+        <p>
+            <div class="mb-3"><button class="btn btn-info font-weight-bold d-block w-100" type="submit">Add Complainant Profile</button></div>
+        </p>
+    </form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+  
+
+    {% block scripts %}
+    {{ bootstrap.load_js() }}
+{% endblock %}
+</body>
+</html>

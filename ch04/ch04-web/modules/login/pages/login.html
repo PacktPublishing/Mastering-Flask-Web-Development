@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Online Complaint Management System</title>
+   
+    {{ bootstrap.load_css() }}
+    
+  </head>
+  <body>
+    <section class="position-relative py-4 py-xl-5">
+        <div class="container position-relative">
+            <div class="row mb-5">
+                <div class="col-md-8 col-xl-6 text-center mx-auto">
+                    <h2 class="display-3">User Login</h2>
+                    
+                </div>
+            </div>
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-6 col-xl-4">
+                    <div class="card">
+                        <div class="card-body text-center d-flex flex-column align-items-center"> 
+                          <form action = "{{ request.path }}" method = "post">
+                             {{ form.csrf_token }}
+                               <div class="mb-3">{{ form.username(size=25, placeholder='Username', class="form-control") }}</div>
+                                 {% if form.username.errors %}
+                                    <ul>
+                                        {% for error in form.username.errors %}
+                                            <li>{{ error }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                {% endif %}
+                                <div class="mb-3"> {{ form.password(size=25, placeholder='Password', class="form-control") }}</div>
+                                {% if form.password.errors %}
+                                    <ul>
+                                        {% for error in form.password.errors %}
+                                            <li>{{ error }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                {% endif %}
+                                <div class="mb-3"><button class="btn btn-info font-weight-bold d-block w-100" type="submit">Add Login Account</button></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    {{ bootstrap.load_js() }}
+    
+</body>
+</html>
