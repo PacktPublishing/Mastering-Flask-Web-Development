@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Bokeh HPI</title>
+        <script src="https://cdn.bokeh.org/bokeh/release/bokeh-3.2.2.js"></script>
+    </head>
+    <body>
+        <h1>{{ title }}</h1>
+        <form action="{{request.path}}" method="POST" enctype="multipart/form-data">
+            Upload XLSX file:
+            <input type="file" name="data_file" /><br />
+            <input type="submit" value="Upload File" />
+        </form><br />
+        {%if div == None and script == None %}
+            <p>No plot image.</p>
+        {% else %}
+        {{ div | safe }}
+        {{ script | safe }}
+        {% endif %}
+    </body>
+</html>

@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Creating Real-Time Charts with Flask</title>
+    <script src='https://cdn.jsdelivr.net/npm/chart.js'></script>
+  </head>
+  <body>
+    <h1>Add Vote Tally Per Precinct</h1>
+    <form id="vote_form">
+        <label for="hpi">HPI Value: </label>
+        <input type="number" step="0.01" id="hpi"><br/>
+        <label for="year">Year: </label>
+        <input type="number" id="year"><br/>
+        <label for="quarter">Quarter: </label>
+        <input type="number" id="quarter"><br/>
+        <input type="submit" value="Send data"><br/>
+     
+    </form>
+    <br/>
+    <div id="add_log"></div>
+    <br>
+
+
+                      <canvas id="canvas"></canvas>
+                 
+  
+    <script>
+      const config = {
+        type: 'line',
+        data: {
+            labels: [],
+            datasets: [{
+                label: "Random Dataset",
+                backgroundColor: 'rgb(203, 99, 132)',
+                borderColor: 'rgb(240, 62, 14)',
+                data: [],
+                fill: false,
+            }],
+        },
+        options: {
+            responsive: true,
+            title: {
+                display: true,
+                text: 'Creating Real-Time Charts with Flask'
+            },
+            tooltips: {
+                mode: 'index',
+                intersect: false,
+            },
+            hover: {
+                mode: 'nearest',
+                intersect: true
+            },
+            scales: {
+                xAxes: [{
+                    display: true,
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Time'
+                    }
+                }],
+                yAxes: [{
+                    display: true,
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Value'
+                    }
+                }]
+            }
+        }
+    };
+
+    const context = document.getElementById('canvas')
+
+    const lineChart = new Chart(context, config);
+
+      const add_log = (message) => {
+        document.getElementById('add_log').innerHTML += `<span>${message}</span><br>`;
+      };
+
+      const socket = new WebSocket('ws://' + location.host + '/ch06/ws/server/hpi/plot');
+      socket.addEventListener('message', msg => {
+        //add_log('server: ' + msg.data);
+        const data = JSON.parse(msg.data);
+            if (config.data.labels.length === 20) {
+                config.data.labels.shift();
+                config.data.datasets[0].data.shift();
+            }
+            config.data.labels.push(data.period);
+            config.data.datasets[0].data.push(data.hpi);
+            lineChart.update();
+      });
+      
+      document.getElementById('vote_form').onsubmit = data => {
+            data.preventDefault();
+            const hpi = document.getElementById('hpi');
+            const year = document.getElementById('year');
+            const quarter = document.getElementById('quarter');
+            var hpi_data = new Object();
+            hpi_data.hpi = hpi.value;
+            hpi_data.year  = year.value;
+            hpi_data.quarter = quarter.value;
+          
+            var hpi_data_json = JSON.stringify(hpi_data);
+
+            
+            add_log('client: ' + hpi_data_json);
+            socket.send(hpi_data_json);
+            
+            hpi.value = '';
+            year.value = '';
+            quarter.value = ''
+      };
+    </script>
+  </body>
+</html>

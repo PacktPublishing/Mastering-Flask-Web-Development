@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>{{ title }}</title>
+  <script src='https://cdn.jsdelivr.net/npm/chart.js'></script>
+</head>
+
+<body>
+    <h1>{{ title }}</h1>
+    <form action="{{request.path}}" method="POST" enctype="multipart/form-data">
+      Upload XLSX file: 
+      <input type="file" name="data_file"/><br/>
+      <input type="submit" value="Upload File"/>
+  </form>
+</body><br/>
+<canvas id="chart" width="300" height="100"></canvas>
+    <script>
+   
+      var mychart = document.getElementById("chart")
+     
+      // draw pie chart
+      new Chart(mychart,{
+      type: 'doughnut',
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'top',
+          },
+          title: {
+            display: true,
+            text: 'Chart.js Pie Chart'
+          }
+        }
+      },
+      data: {
+        
+        labels : [
+             {% for item in labels %}
+               "{{ item }}",
+             {% endfor %}
+         ],
+
+        datasets : [{
+          data : [
+            {% for item in values %}
+               "{{ item }}",
+              {% endfor %}
+           ]}
+        ]}
+    });
+
+
+    </script>
+</body>
+</html>

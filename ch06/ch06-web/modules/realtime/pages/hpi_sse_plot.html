@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Creating Real-Time Charts with Flask</title>
+        <script src='https://cdn.jsdelivr.net/npm/chart.js'></script>
+      </head>
+<body>
+     <canvas id="canvas"></canvas>
+                  
+     <script>
+        const config = {
+            type: 'line',
+            data: {
+                labels: [],
+                datasets: [{
+                    label: "Real-time HPI values",
+                    backgroundColor: 'rgb(99, 255, 177)',
+                    borderColor: 'rgb(11, 114, 77)',
+                    data: [],
+                    fill: false,
+                }],
+            },
+            options: {
+                responsive: true,
+                title: {
+                    display: true,
+                    text: 'Creating Real-Time Charts with Flask'
+                },
+                tooltips: {
+                    mode: 'index',
+                    intersect: false,
+                },
+                hover: {
+                    mode: 'nearest',
+                    intersect: true
+                },
+                scales: {
+                    y: {
+                        ticks: { color: 'green', beginAtZero: true }
+                      },
+                      x: {
+                        ticks: { color: 'red', beginAtZero: true }
+                      }
+                }
+            }
+        };
+    
+        const context = document.getElementById('canvas')
+    
+        const lineChart = new Chart(context, config);
+        var source = new EventSource("/ch06/sse/hpi/data/stream");
+        source.onmessage = function (event) {
+            const data = JSON.parse(event.data);
+            if (config.data.labels.length === 20) {
+                config.data.labels.shift();
+                config.data.datasets[0].data.shift();
+            }
+            config.data.labels.push(data.period);
+            config.data.datasets[0].data.push(data.hpi);
+            lineChart.update();
+        };
+
+       
+    </script>
+</body>
+</html>

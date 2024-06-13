@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Online Voting System </title>
+  </head>
+  <body>
+    <h1>Election Complaint Desk</h1>
+    <form action = "{{ request.path }}" method = "post">
+      <label for="hpi">HPI Value: </label>
+      <input type="number" step="0.01" name="hpi"><br/>
+      <label for="year">Year: </label>
+      <input type="number" name="year"><br/>
+      <label for="quarter">Quarter: </label>
+      <input type="number" name="quarter"><br/>
+      <input type="submit" value="Send data"><br/>
+    </form>
+  </body>
+</html>

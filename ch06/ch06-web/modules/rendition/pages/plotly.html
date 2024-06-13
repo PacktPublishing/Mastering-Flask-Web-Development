@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Plotly Bar Graph</title>
+    </head>
+    <body>
+        <h1>{{ title}}</h1>
+        <form action="{{request.path}}" method="POST" enctype="multipart/form-data">
+            Upload XLSX file:
+            <input type="file" name="data_file" /><br />
+            <input type="submit" value="Upload File" />
+        </form><br />
+        {%if graphJSON == '{}' %}
+            <p>No plot image.</p>
+        {% else %}
+            <div id='chart' class='chart'></div>
+        {% endif %}
+    </body>
+    <script src='https://cdn.plot.ly/plotly-latest.js'></script>
+    <script type='text/javascript'>
+            var graphs = {{ graphJSON | safe }};
+            Plotly.plot('chart', graphs, {});
+    </script>
+</html>

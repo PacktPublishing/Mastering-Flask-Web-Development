@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home Page</title>
+  </head>
+  <body>
+    <form action="{{request.path}}" method="POST" enctype="multipart/form-data">
+        Upload CSV file: 
+        <input type="file" name="data_file"/><br/>
+        <input type="submit" value="Upload File"/>
+    </form>
+  </body><br/>
+    {%if hpi == None %}
+        <p>No value.</p>
+    {% else %}
+        HPI Value = {{hpi}}
+    {% endif %} 
+</html>

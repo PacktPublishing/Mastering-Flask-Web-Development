@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>ChartJS Bar Graph</title>
+  <script src='https://cdn.jsdelivr.net/npm/chart.js'></script>
+</head>
+
+<body>
+ 
+    <h1>{{ title }}</h1>
+    <form action="{{request.path}}" method="POST" enctype="multipart/form-data">
+      Upload XLSX file: 
+      <input type="file" name="data_file"/><br/>
+      <input type="submit" value="Upload File"/>
+  </form>
+</body><br/>
+  
+    <canvas id="chart" width="300" height="100"></canvas>
+    <script>
+      // bar chart data
+      
+
+     // get bar chart canvas
+     var mychart = document.getElementById("chart");
+
+     // draw bar chart
+     new Chart(mychart, {
+      type: 'bar',
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true,
+            title: {
+              display: true,
+              text: 'Mean HPI'
+            }
+          },
+          x: {
+            beginAtZero: true,
+            title: {
+              display: true,
+              text: 'Countries with HPI'
+            }
+          }
+        }
+      },
+      data: {
+        
+        labels : [
+             {% for item in labels %}
+               "{{ item }}",
+             {% endfor %}
+	       ],
+
+        datasets : [{
+          borderWidth: 1,
+          barPercentage: 0.5,
+          barThickness: 20,
+          maxBarThickness: 70,
+          borderWidth : 1,
+          minBarLength: 5,
+          backgroundColor: "rgba(230,112,16,0.88)",
+          borderColor : "rgba(38,22,6,0.88)",
+          label: 'Mean HPI',
+          data : [
+            {% for item in values %}
+               "{{ item }}",
+            {% endfor %}
+	         ]}
+        ]}
+    });
+
+    </script>
+ 
+</body>
+</html>
