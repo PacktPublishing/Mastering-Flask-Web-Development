@@ -1,0 +1,6 @@
+{% extends "error/layout.html" %}
+{% block title %}Internal Server Error{% endblock %}
+{% block status %}500{% endblock %}
+{% block content %}
+  <em>{{ ex_message }}</em>
+{% endblock %}

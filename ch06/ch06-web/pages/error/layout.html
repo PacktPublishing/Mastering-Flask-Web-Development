@@ -1,0 +1,36 @@
+{# parent error page #}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}{{ title }}{% endblock title %}</title>
+ 
+</head>
+
+<body>
+  
+            <h3 >
+              Status Code:
+              {% block status %}
+    
+              {% endblock status %}
+            </h3>
+
+            <span >
+              <strong>Exception message:</strong>
+              {% block content %}
+    
+              {% endblock content %}
+            </span>
+
+            
+        </div>
+    </div>
+</div>
+  
+
+  
+  
+</body>
+</html>

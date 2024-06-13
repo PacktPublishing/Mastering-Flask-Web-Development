@@ -1,0 +1,85 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.5) (preloaded format=pdflatex 2023.7.26)  15 AUG 2023 12:53
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**./files/latex/intro.pdf
+(files/latex/intro.pdf
+LaTeX2e <2023-06-01> patch level 1
+L3 programming layer <2023-06-30>
+(C:\Alibata\Development\Tools\MiKTeX\tex/latex/base\article.cls
+Document Class: article 2023/05/17 v1.4n Standard LaTeX document class
+(C:\Alibata\Development\Tools\MiKTeX\tex/latex/base\size10.clo
+File: size10.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count185
+\c@section=\count186
+\c@subsection=\count187
+\c@subsubsection=\count188
+\c@paragraph=\count189
+\c@subparagraph=\count190
+\c@figure=\count191
+\c@table=\count192
+\abovecaptionskip=\skip48
+\belowcaptionskip=\skip49
+\bibindent=\dimen140
+)
+(C:\Alibata\Development\Tools\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
+File: l3backend-pdftex.def 2023-04-19 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count193
+\l__pdf_internal_box=\box51
+)
+(C:\Alibata\Training\Source\flask\mastering\ch06-web-final\templates\intro.aux)
+\openout1 = `intro.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <17.28> on input line 7.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 7.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 7.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 7.
+
+LaTeX Warning: No \author given.
+
+[1
+
+{C:/Users/alibatasys/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
+(C:\Alibata\Training\Source\flask\mastering\ch06-web-final\templates\intro.aux)
+ ***********
+LaTeX2e <2023-06-01> patch level 1
+L3 programming layer <2023-06-30>
+ ***********
+ ) 
+Here is how much of TeX's memory you used:
+ 459 strings out of 475550
+ 9202 string characters out of 5766739
+ 1917238 words of memory out of 5000000
+ 21752 multiletter control sequences out of 15000+600000
+ 561719 words of font info for 48 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 35i,6n,50p,140b,199s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Alibata/Development/Tools/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb
+><C:/Alibata/Development/Tools/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb>
+<C:/Alibata/Development/Tools/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb>
+Output written on C:\Alibata\Training\Source\flask\mastering\ch06-web-final\tem
+plates\intro.pdf (1 page, 37052 bytes).
+PDF statistics:
+ 21 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+

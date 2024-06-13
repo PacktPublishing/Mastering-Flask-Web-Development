@@ -1,0 +1,144 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.5) (preloaded format=pdflatex 2023.8.23)  13 JUN 2024 06:37
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**./files/latex/hpi_plot.pdf
+(files/latex/hpi_plot.pdf
+LaTeX2e <2023-06-01> patch level 1
+L3 programming layer <2023-08-11>
+(C:\Alibata\Development\Tools\MiKTeX\tex/latex/base\article.cls
+Document Class: article 2023/05/17 v1.4n Standard LaTeX document class
+(C:\Alibata\Development\Tools\MiKTeX\tex/latex/base\size12.clo
+File: size12.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count185
+\c@section=\count186
+\c@subsection=\count187
+\c@subsubsection=\count188
+\c@paragraph=\count189
+\c@subparagraph=\count190
+\c@figure=\count191
+\c@table=\count192
+\abovecaptionskip=\skip48
+\belowcaptionskip=\skip49
+\bibindent=\dimen140
+)
+(C:\Alibata\Development\Tools\MiKTeX\tex/latex/graphics\graphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+
+(C:\Alibata\Development\Tools\MiKTeX\tex/latex/graphics\keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks17
+)
+(C:\Alibata\Development\Tools\MiKTeX\tex/latex/graphics\graphics.sty
+Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
+
+(C:\Alibata\Development\Tools\MiKTeX\tex/latex/graphics\trig.sty
+Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
+)
+(C:\Alibata\Development\Tools\MiKTeX\tex/latex/graphics-cfg\graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 107.
+
+(C:\Alibata\Development\Tools\MiKTeX\tex/latex/graphics-def\pdftex.def
+File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen141
+\Gin@req@width=\dimen142
+)
+(C:\Alibata\Development\Tools\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
+File: l3backend-pdftex.def 2023-04-19 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count193
+\l__pdf_internal_box=\box51
+)
+(C:\Alibata\Training\Source\flask\mastering\ch06-web\files\latex\hpi_plot.aux)
+\openout1 = `hpi_plot.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+
+(C:\Alibata\Development\Tools\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count194
+\scratchdimen=\dimen143
+\scratchbox=\box52
+\nofMPsegments=\count195
+\nofMParguments=\count196
+\everyMPshowfont=\toks18
+\MPscratchCnt=\count197
+\MPscratchDim=\dimen144
+\MPnumerator=\count198
+\makeMPintoPDFobject=\count199
+\everyMPtoPDFconversion=\toks19
+) (C:\Alibata\Development\Tools\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+(C:\Alibata\Development\Tools\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
+))
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <14.4> on input line 10.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 10.
+<files/img/simple_plot.png, id=1, 462.528pt x 346.896pt>
+File: files/img/simple_plot.png Graphic file (type png)
+<use files/img/simple_plot.png>
+Package pdftex.def Info: files/img/simple_plot.png  used on input line 16.
+(pdftex.def)             Requested size: 292.5pt x 219.38724pt.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 17.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 17.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 17.
+
+[1
+
+{C:/Users/alibatasys/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./files
+/img/simple_plot.png>]
+Overfull \hbox (86.93884pt too wide) in paragraph at lines 26--38
+ [] 
+ []
+
+[2]
+(C:\Alibata\Training\Source\flask\mastering\ch06-web\files\latex\hpi_plot.aux)
+ ***********
+LaTeX2e <2023-06-01> patch level 1
+L3 programming layer <2023-08-11>
+ ***********
+ ) 
+Here is how much of TeX's memory you used:
+ 1312 strings out of 475502
+ 22159 string characters out of 5766019
+ 1920248 words of memory out of 5000000
+ 22619 multiletter control sequences out of 15000+600000
+ 562623 words of font info for 51 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 57i,6n,65p,763b,235s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Alibata/Development/Tools/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pf
+b><C:/Alibata/Development/Tools/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pf
+b><C:/Alibata/Development/Tools/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb
+><C:/Alibata/Development/Tools/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb>
+<C:/Alibata/Development/Tools/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+
+Output written on C:\Alibata\Training\Source\flask\mastering\ch06-web\files\lat
+ex\hpi_plot.pdf (2 pages, 78157 bytes).
+PDF statistics:
+ 37 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+
