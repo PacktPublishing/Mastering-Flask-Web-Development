@@ -1,0 +1,11 @@
+\documentclass{article}
+
+\title{Using \LaTeX{} with Flask}
+
+\begin{document}
+
+\maketitle
+
+{{ foo }}
+
+\end{document}
