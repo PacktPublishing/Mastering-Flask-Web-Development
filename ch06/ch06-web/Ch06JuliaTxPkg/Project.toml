@@ -1,0 +1,7 @@
+name = "Ch06JuliaTxPkg"
+uuid = "eeafff05-6815-455e-be1c-80799ac2457b"
+authors = ["alibatasys@DESKTOP-56HNGC9 <sjctrags@gmail.com>"]
+version = "0.1.0"
+
+[deps]
+PythonCall = "6099a3de-0909-46bc-b1f4-468b9a2dfc0d"
