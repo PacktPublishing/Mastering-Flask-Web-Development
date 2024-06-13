@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Simple Linear Equation</title>
+  </head>
+   <body>
+    <h1>Bi-variate Linear Equation</h1>
+    <form action = "{{ request.path }}" method = "POST">
+        Equation: <input type="text" name="equation"/><br/>
+        Max value: <input type="number" step="0.01" name="maxval"/><br/>
+        Min Value: <input type="number" step="0.01" name="minval"/><br/>
+        <input type="submit" value="Plot"/>
+    </form><br/>
+    {%if data == None %}
+        <p>No plot image.</p>
+    {% else %}
+        <img src='data:image/png;base64, {{data}}'/>
+    {% endif %}    
+</body>
+</html>

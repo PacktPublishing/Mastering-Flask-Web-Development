@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Simple Linear Equation</title>
+  </head>
+  <body>
+    <h1>Bivariate Linear Equation</h1>
+    <form action = "{{ request.path }}" method = "POST">
+        Linear Equation: <input type="text" name="lineqn"/><br/>
+        Input for x: <input type="number" name="xvar" step="0.01"/><br/>
+        Input for y: <input type="number" name="yvar" step="0.01"/><br/>
+        <input type="submit" value="Solve"/>
+    </form><br/>
+    {% if soln == None %}
+       Solution: N.A.
+    {% else %}
+       Solution: {{ soln }}
+    {% endif %}
+  </body>
+</html>

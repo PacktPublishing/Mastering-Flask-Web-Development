@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Simple Linear Equation</title>
+  </head>
+   <body>
+    <h1>Plotting Univariate Polynomial Equations</h1>
+    <form action = "{{ request.path }}" method = "POST">
+        <hr/>
+        Equation 1: <input type="text" name="equation1"/><br/>
+        Max value: <input type="number" step="0.01" name="eqn1_maxval"/><br/>
+        Min Value: <input type="number" step="0.01" name="eqn1_minval"/><br/>
+        <hr/>
+        Equation 2: <input type="text" name="equation2"/><br/>
+        Max value: <input type="number" step="0.01" name="eqn2_maxval"/><br/>
+        Min Value: <input type="number" step="0.01" name="eqn2_minval"/><br/>
+        <hr/>
+        <input type="submit" value="Plot"/>
+    </form><br/>
+    {%if data == None %}
+        <p>No plot image.</p>
+    {% else %}
+        <img src='data:image/png;base64, {{data}}'/>
+    {% endif %}  
+    
+</body>
+</html>
