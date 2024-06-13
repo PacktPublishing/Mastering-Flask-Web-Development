@@ -1,0 +1,57 @@
+========================================================================
+Project Name: Online Housing Prediction and Analysis System (OHPAS)
+Author: Sherwin John C. Tragura
+Description: This prototype is a web-based scientific information management 
+      system that uploads XLSX and CSV files with numerical and ordinal data 
+      for analysis, computation, and report generation using graphs and plots.
+
+      This application explores Flask's mathematical and scientific side with 
+      popular modules like Pandas, NumPy, SciPy, Matplotlib, seaborn, and other 
+      related modules.
+      The application uses Blueprint approach in managing its code structure.
+========================================================================
+
+A. Project Directory
+--- ch0-web (main project directory)
+      --- modules  - contains all the modules and their respective components, 
+                        such view functions, repository, and services
+                   - here are the modules:
+                        - equations - contains form view accepting linear equations and
+                                    derives the solutions
+                        - external  - contains views that accesses Julia scripts for computation
+                        - internal - contains views that uses Celery for computations
+                        - realtime - contains WebSocket and SSE solutions for real-time data analysis
+                        - rendition - contains views that generates plots and charts using front-end libraries
+                        - upload - contains view that uploads XLSX and CSV files and generates data analysis and plotting
+
+      --- Ch06JuliaPkg - Julia Packages
+      --- Ch06JuliaTxPkg - Julia Packages
+      --- exceptions - contains custom exceptions for the exception handlers
+      --- files - folder for storing the uploaded files
+      --- pages - Jinja templates for error pages
+      --- templates - folder for saving generated PDF and LaTeX files
+      --- tests - contains the PyTest files for testing some components
+      --- main.py - creates the Flask instance, enables the
+                    exception handlers, and sets up the Celery 
+     
+B. Configuration files 
+    --- config_dev.toml - configuration variables written in TOML for development stage
+    --- celery_app.py - provides the Celery instance
+    --- celery_config.py - provides the Celery configuration with the Flask instance
+    --- redis_config.py - provides the configuration for the Redis server connectivity
+    --- sock_config.py - creates the Sock instance from the Flask-Sock module for WebSocket
+
+C. Database Configurations
+   No database used.
+
+D. Dependencies
+   --- Install Julia language into the system. Make the julia command globally accessible
+   --- Create a Python virtual env (e.g., ch06-web-env) using the venv module first before running the dependency files
+   --- requirements.txt - contains the updated modules just run it inside your venv directory using:
+                  python -m pip install -r requirements.txt
+
+E. Running the application:
+   --- Run the Redis server first
+   --- Open a new terminal in VS Code and using the ch05-env, run Celery at least using this command:
+         celery -A main.celery_app worker --loglevel=info -P solo
+   --- Run the command python main.py inside the enabled ch06-web-env
