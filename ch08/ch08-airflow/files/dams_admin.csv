@@ -1,0 +1,3 @@
+id,empid,username,firstname,midname,lastname,email,mobile,position,status,date_started,role
+1,HSP-100,admin,Jonathan,Cruz,Vallar,jv@gmail.com,+639188881234,Administrator,True,2010-10-10,0
+2,HSP-101,admin3,Gelo,Cruz,Gelo,gelo@gmail.com,+639399178656,Administrator,True,2010-10-10,0
