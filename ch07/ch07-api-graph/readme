@@ -1,0 +1,35 @@
+========================================================================
+Project Name: Tutor Finder application - Graph DB 
+Author: Sherwin John C. Tragura
+Description: This is an extension of ch07-api that focuses on a graph database,
+     the Neo4J.
+
+     The application uses the non-standard approach for Flask API development.
+========================================================================
+
+A. Project Directory
+--- ch07-api-graph (main project directory)
+      --- modules - contains all the API modules and their respective components
+                    that use Neo4J graph database 
+               - contains the repository directory for each NoSQL database platform
+              
+      --- main.py - creates the Flask instance and imports the API endpoints 
+                    using its context
+   
+
+B. Configuration files 
+    --- config_dev.toml - configuration variables written in TOML for development stage
+    --- neo4j_config.py - provides the Neo4J connectivity
+    
+C. Database Configurations
+   --- Use and install and use Neo4j Desktop Community version
+
+D. Dependencies
+   --- Create a Python virtual env (e.g., ch07-env) using the venv module first before running the dependency files
+   --- requirements.txt - contains the updated modules just run it inside your venv directory using:
+                  python -m pip install -r requirements.txt --upgrade
+
+E. Running the application:
+   --- Start the Neo4J server first
+   --- Follow the instructions in Chapter 7 in creating the graph database
+   --- Run the command python main.py inside the enabled ch07-env
