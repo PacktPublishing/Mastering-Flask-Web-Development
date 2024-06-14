@@ -1,1 +1,3 @@
-
+Projects for Chapter 7 (ch07):
+    --- ch07-api - uses the HBase, Cassandra, Couchbase, MongoDB, and Redis
+    --- ch07-api-graph - uses the Neo4J graph database
