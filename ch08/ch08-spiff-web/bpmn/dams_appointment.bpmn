@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" xmlns:color="http://www.omg.org/spec/BPMN/non-normative/color/1.0" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_0x5ekg8" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.17.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
+  <bpmn:process id="Process_ApptDams01" name="Doctor&#39;s Appointment" isExecutable="true" camunda:historyTimeToLive="180">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>Flow_0fr3hj5</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_0fr3hj5" sourceRef="StartEvent_1" targetRef="Activity_SpecialDoc" />
+    <bpmn:userTask id="Activity_SpecialDoc" name="Doctor&#39;s Specialization Form">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="specialization" label="Specialization" />
+        </camunda:formData>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0fr3hj5</bpmn:incoming>
+      <bpmn:outgoing>Flow_0h8baw4</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="Flow_0h8baw4" sourceRef="Activity_SpecialDoc" targetRef="Activity_SelectDoc" />
+    <bpmn:userTask id="Activity_SelectDoc" name="List  Specialized Doctors">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="docid" label="DocID" />
+        </camunda:formData>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0h8baw4</bpmn:incoming>
+      <bpmn:outgoing>Flow_1gez64q</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="Flow_1gez64q" sourceRef="Activity_SelectDoc" targetRef="Activity_SchedForm" />
+    <bpmn:userTask id="Activity_SchedForm" name="Doctor&#39;s Availability Form">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="date_scheduled" label="Date Scheduled" />
+          <camunda:formField id="time_scheduled" label="Time Scheduled" />
+        </camunda:formData>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1gez64q</bpmn:incoming>
+      <bpmn:outgoing>Flow_00bk5zq</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:exclusiveGateway id="Gateway_0ht2f5w">
+      <bpmn:incoming>Flow_1q4jowk</bpmn:incoming>
+      <bpmn:outgoing>Flow_1j2zef7</bpmn:outgoing>
+      <bpmn:outgoing>Flow_1p3bjbz</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_1j2zef7" sourceRef="Gateway_0ht2f5w" targetRef="Activity_SaveSched">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">proceed == True</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:scriptTask id="Activity_SaveSched" name="Finalize Schedule" camunda:resultVariable="finalize_sched">
+      <bpmn:extensionElements />
+      <bpmn:incoming>Flow_1j2zef7</bpmn:incoming>
+      <bpmn:outgoing>Flow_0rkinc1</bpmn:outgoing>
+      <bpmn:script>finalize_sched = proceed</bpmn:script>
+    </bpmn:scriptTask>
+    <bpmn:scriptTask id="Activity_EvalApptData" name="Evaluate Form Data">
+      <bpmn:extensionElements>
+        <camunda:inputOutput>
+          <camunda:outputParameter name="proceed" />
+        </camunda:inputOutput>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1pxqcyf</bpmn:incoming>
+      <bpmn:outgoing>Flow_1q4jowk</bpmn:outgoing>
+      <bpmn:script>if ticketid == '' and patientid == '' and priority_level == '':
+    proceed = False
+else:
+    proceed = True</bpmn:script>
+    </bpmn:scriptTask>
+    <bpmn:sequenceFlow id="Flow_1q4jowk" sourceRef="Activity_EvalApptData" targetRef="Gateway_0ht2f5w" />
+    <bpmn:userTask id="Activity_PatientDet" name="Patient Detail Form">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="patientid" label="Patient ID" />
+          <camunda:formField id="ticketid" label="Ticket ID" />
+          <camunda:formField id="priority_level" label="Priority Level" />
+        </camunda:formData>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_00bk5zq</bpmn:incoming>
+      <bpmn:outgoing>Flow_1pxqcyf</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="Flow_00bk5zq" sourceRef="Activity_SchedForm" targetRef="Activity_PatientDet" />
+    <bpmn:sequenceFlow id="Flow_1pxqcyf" sourceRef="Activity_PatientDet" targetRef="Activity_EvalApptData" />
+    <bpmn:sequenceFlow id="Flow_1p3bjbz" sourceRef="Gateway_0ht2f5w" targetRef="Activity_1rldgqw">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">proceed == False</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:endEvent id="Event_0rbbove">
+      <bpmn:incoming>Flow_17fp3hj</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_17fp3hj" sourceRef="Activity_1rldgqw" targetRef="Event_0rbbove" />
+    <bpmn:endEvent id="Event_1ya9gw6">
+      <bpmn:incoming>Flow_0rkinc1</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_0rkinc1" sourceRef="Activity_SaveSched" targetRef="Event_1ya9gw6" />
+    <bpmn:scriptTask id="Activity_1rldgqw" name="Redirect to Specialization Form" camunda:resultVariable="finalize_sched">
+      <bpmn:incoming>Flow_1p3bjbz</bpmn:incoming>
+      <bpmn:outgoing>Flow_17fp3hj</bpmn:outgoing>
+      <bpmn:script>finalize_sched = proceed</bpmn:script>
+    </bpmn:scriptTask>
+    <bpmn:textAnnotation id="TextAnnotation_0l1yhu9">
+      <bpmn:text>Follows a form flow to finalize doctor's appointment</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_1dh3z5q" sourceRef="StartEvent_1" targetRef="TextAnnotation_0l1yhu9" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_ApptDams01">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="179" y="219" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0ea2otn_di" bpmnElement="Activity_SpecialDoc" bioc:stroke="#831311" bioc:fill="#ffcdd2" color:background-color="#ffcdd2" color:border-color="#831311">
+        <dc:Bounds x="280" y="280" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0xsg2m8_di" bpmnElement="Activity_SelectDoc" bioc:stroke="#5b176d" bioc:fill="#e1bee7" color:background-color="#e1bee7" color:border-color="#5b176d">
+        <dc:Bounds x="380" y="150" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1aars0o_di" bpmnElement="Activity_SchedForm" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+        <dc:Bounds x="500" y="280" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_0ht2f5w_di" bpmnElement="Gateway_0ht2f5w" isMarkerVisible="true">
+        <dc:Bounds x="855" y="212" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_06e88sm_di" bpmnElement="Activity_EvalApptData" bioc:stroke="#205022" bioc:fill="#c8e6c9" color:background-color="#c8e6c9" color:border-color="#205022">
+        <dc:Bounds x="750" y="280" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_033z8qj_di" bpmnElement="Activity_PatientDet" bioc:stroke="#831311" bioc:fill="#ffcdd2" color:background-color="#ffcdd2" color:border-color="#831311">
+        <dc:Bounds x="640" y="150" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_0l1yhu9_di" bpmnElement="TextAnnotation_0l1yhu9">
+        <dc:Bounds x="200" y="80" width="100" height="70" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0xuyx5n_di" bpmnElement="Activity_SaveSched" bioc:stroke="#205022" bioc:fill="#c8e6c9" color:background-color="#c8e6c9" color:border-color="#205022">
+        <dc:Bounds x="830" y="75" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1ya9gw6_di" bpmnElement="Event_1ya9gw6">
+        <dc:Bounds x="1022" y="97" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0gtqnsv_di" bpmnElement="Activity_1rldgqw" bioc:stroke="#205022" bioc:fill="#c8e6c9" color:background-color="#c8e6c9" color:border-color="#205022">
+        <dc:Bounds x="990" y="197" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0rbbove_di" bpmnElement="Event_0rbbove">
+        <dc:Bounds x="1022" y="322" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_0fr3hj5_di" bpmnElement="Flow_0fr3hj5">
+        <di:waypoint x="215" y="237" />
+        <di:waypoint x="243" y="237" />
+        <di:waypoint x="243" y="320" />
+        <di:waypoint x="280" y="320" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0h8baw4_di" bpmnElement="Flow_0h8baw4">
+        <di:waypoint x="380" y="320" />
+        <di:waypoint x="430" y="320" />
+        <di:waypoint x="430" y="230" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1gez64q_di" bpmnElement="Flow_1gez64q">
+        <di:waypoint x="480" y="190" />
+        <di:waypoint x="550" y="190" />
+        <di:waypoint x="550" y="280" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1j2zef7_di" bpmnElement="Flow_1j2zef7">
+        <di:waypoint x="880" y="212" />
+        <di:waypoint x="880" y="155" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1q4jowk_di" bpmnElement="Flow_1q4jowk">
+        <di:waypoint x="850" y="320" />
+        <di:waypoint x="880" y="320" />
+        <di:waypoint x="880" y="262" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_00bk5zq_di" bpmnElement="Flow_00bk5zq">
+        <di:waypoint x="600" y="320" />
+        <di:waypoint x="620" y="320" />
+        <di:waypoint x="620" y="220" />
+        <di:waypoint x="640" y="220" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1pxqcyf_di" bpmnElement="Flow_1pxqcyf">
+        <di:waypoint x="690" y="230" />
+        <di:waypoint x="690" y="340" />
+        <di:waypoint x="750" y="340" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_1dh3z5q_di" bpmnElement="Association_1dh3z5q">
+        <di:waypoint x="203" y="220" />
+        <di:waypoint x="229" y="150" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1p3bjbz_di" bpmnElement="Flow_1p3bjbz">
+        <di:waypoint x="905" y="237" />
+        <di:waypoint x="990" y="237" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_17fp3hj_di" bpmnElement="Flow_17fp3hj">
+        <di:waypoint x="1040" y="277" />
+        <di:waypoint x="1040" y="322" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0rkinc1_di" bpmnElement="Flow_0rkinc1">
+        <di:waypoint x="930" y="115" />
+        <di:waypoint x="1022" y="115" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

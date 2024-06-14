@@ -1,0 +1,46 @@
+========================================================================
+Project Name: Doctor's Appointment Management Software (DAMS)
+Author: Sherwin John C. Tragura
+Description: This prototype is a web application necessary 
+       to simulate and run BPMN and non-BPMN workflows using SpiffWorkflow.
+
+       The application uses the Blueprint and Application Factory design approach in managing its source codes and directories.
+========================================================================
+
+A. Project Directory
+
+--- ch08-spiff-web (main project directory)
+      --- modules  - contains all the  view modules and their respective components, 
+                        such API endpoint functions, repository, and services
+               - contains the model directory that has the model classes
+               - contains the __init__.py - the heart of the applications
+                     - contains all the initialization, setups, and   
+                          configurations
+                     - creates the Flask instance and returns it to main.py
+              
+      --- bpmn - the folder for BPMN files implementing the login, diagnosis, and
+                 appointment workflows
+      --- main.py -  the main module that imports the create_app() from 
+          modules/__init__.py
+
+      --- migrations - containing the Alembic-related files like the env.py
+
+
+B. Configuration files 
+    --- config_dev.toml - configuration variables written in TOML for development stage
+    --- celery_app.py - provides the Celery instance
+    --- celery_config.py - provides the Celery configuration with the Flask instance
+    --- manage.py - provides the Flask-Migrate implementation and setup
+     
+C. Database Configurations
+   db_dump - contains the dams.sql dump file, which contains dummy test data
+           - database platform is PostgreSQL 
+
+D. Dependencies
+   --- Create a Python virtual env (e.g., ch08-spiff-env) using the venv module first before running the dependency file.
+   --- requirements.txt - contains the updated modules just run it inside your venv directory using:
+                  python -m pip install -r requirements.txt --upgrade
+
+E. Running the application:
+   --- Run the command python main.py inside the enabled ch08-spiff-env.
+   

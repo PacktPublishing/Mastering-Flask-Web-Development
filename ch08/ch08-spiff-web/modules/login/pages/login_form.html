@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login Form Page</title>
+  </head>
+  <body>
+     <h1>User Login</h1>
+     <form action = "{{ request.path }}" method = "post">
+        <label for="text">Input username: </label>
+        <input type="text" name="username" required><br/>
+        <label for="text">Input password: </label>
+        <input type="password" name="password" required><br/>
+        <label for="text">Input role: </label>
+        <select name="role">
+            <option value="administrator">Administrator</option>
+            <option value="doctor">Doctor</option>
+            <option value="patient">Patient</option>
+        </select><br/>
+        <input type="submit" value="Show Dashboard"><br/>
+      </form>
+  </body>
+</html>
