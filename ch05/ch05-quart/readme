@@ -31,7 +31,7 @@ C. Database Configurations
 D. Dependencies
    --- Create a Python virtual env (e.g., ch05-quart-env) using the venv module first before running the dependency files
    --- requirements.txt - contains the updated modules just run it inside your venv directory using:
-                  python -m pip install -r requirements.txt
+                  python -m pip install -r requirements.txt --upgrade
 
 E. Running the application:
    --- Generate first the PostgreSQL table schema using the following Flask-Migrate commands:
