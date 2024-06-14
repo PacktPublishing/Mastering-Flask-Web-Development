@@ -1,0 +1,55 @@
+========================================================================
+Project Name: Doctor's Appointment Management Software (DAMS)
+Author: Sherwin John C. Tragura
+Description: This application implements the API endpoint function necessary 
+       to simulate and run different workflow implementations using Celery and Redis.
+
+       The application uses the Blueprint and Application Factory design approach in managing its source codes and directories.
+========================================================================
+
+A. Project Directory
+
+--- ch08-celery-redis (main project directory)
+      --- modules  - contains all the  API modules and their respective components, 
+                        such API endpoint functions, repository, and services
+               - contains the model directory that has the model classes
+               - contains the __init__.py - the heart of the applications
+                     - contains all the initialization, setups, and   
+                          configurations
+                     - creates the Flask instance and returns it to main.py
+              
+      --- main.py -  the main module that imports the create_app() from 
+          modules/__init__.py
+
+      --- files - sample CSV files for workflow inputs
+
+B. Configuration files 
+    --- config_dev.toml - configuration variables written in TOML for development stage
+    --- celery_app.py - provides the Celery instance
+    --- celery_config.py - provides the Celery configuration with the Flask instance
+    --- manage.py - provides the Flask-Migrate implementation and setup
+     
+C. Database Configurations
+   db_dump - contains the dams.sql dump file, which contains dummy test data
+           - database platform is PostgreSQL 
+
+D. Dependencies
+   --- Generate first the PostgreSQL table schema using the following Flask-Migrate commands:
+         1. python -m flask --app manage.py db init
+         2. python -m flask --app manage.py db migrate -m "Initial migration."
+         3. python -m flask --app manage.py db upgrade
+            python -m flask --app manage.py db downgrade (if schema needs update but modify the run_migrations_****() in env.py if necessary)
+         4. (optional) python -m flask --app manage.py db histort 
+         5. (optional) python -m flask --app manage.py db stamp head
+   --- Run the Redis server first
+   --- Open a new terminal in VS Code and using the ch08-celery-redis-env, 
+       run Celery at least using this command:
+         celery -A main.celery_app worker --loglevel=info -P solo
+   --- Create a Python virtual env (e.g., ch08-celery-redis-env) using the venv module first before running the dependency file.
+   --- requirements.txt - contains the updated modules just run it inside your venv directory using:
+                  python -m pip install -r requirements.txt --upgrade
+
+E. Running the application:
+   --- Run the command python main.py inside the enabled ch08-celery-redis-env.
+   --- You can run the API using cUrl command (e.g., curl -i -X PATCH 
+         http:// localhost:5000/patch -d "{\"foo\": \"bar\"}" -H "Content-Type: application/json") or Postman tool
