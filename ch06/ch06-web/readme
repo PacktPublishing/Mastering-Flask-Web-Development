@@ -48,7 +48,7 @@ D. Dependencies
    --- Install Julia language into the system. Make the julia command globally accessible
    --- Create a Python virtual env (e.g., ch06-web-env) using the venv module first before running the dependency files
    --- requirements.txt - contains the updated modules just run it inside your venv directory using:
-                  python -m pip install -r requirements.txt
+                  python -m pip install -r requirements.txt --upgrade
 
 E. Running the application:
    --- Run the Redis server first
