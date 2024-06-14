@@ -3,4 +3,5 @@ Projects for Chapter 8 (ch08):
      --- ch08-temporal - workflow using Temporal.io
      --- ch08-spiff-web - workflow using SpiffWorkflow
      --- ch08-zeebe - workflow using Camunda/Zeebe server
+     --- Airflow - deployed directory for the DAGs 
      
