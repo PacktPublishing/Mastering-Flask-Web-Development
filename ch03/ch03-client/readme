@@ -27,7 +27,7 @@ B. Configuration files
 C. Dependencies
    --- Use the ch03-env of the ch03 project
    --- requirements.txt - contains the updated modules just run it inside your venv directory using:
-                  python -m pip install -r requirements.txt
+                  python -m pip install -r requirements.txt --upgrade
 
 D. Running the application:
    --- Run first ch03 application before running this client app.
