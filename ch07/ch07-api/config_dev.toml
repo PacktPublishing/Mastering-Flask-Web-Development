@@ -1,0 +1,6 @@
+CQLENG_ALLOW_SCHEMA_MANAGEMENT = "True"
+
+[MONGODB_SETTINGS]
+db = "tutor"
+host = "localhost"
+port = 27017

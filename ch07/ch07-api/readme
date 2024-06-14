@@ -1,0 +1,60 @@
+========================================================================
+Project Name: Tutor Finder application 
+Author: Sherwin John C. Tragura
+Description: This prototype focuses on managing student and tutor profiles 
+     and assigning or mapping them to each other. This experimental API-based 
+     application uses different NoSQL databases to showcase how to integrate 
+     NoSQL databases into Flask 3.x applications.
+
+     The application uses the Application Factory design approach in managing 
+     its source codes and directories.
+========================================================================
+
+A. Project Directory
+--- ch07-api (main project directory)
+      --- modules - contains all the API modules and their respective components
+                  - the API modules are:
+                     --- cassandra - contains the API endpoint functions that will use Cassandra
+                     --- couchbase - contains the API endpoint functions for HBase
+                     --- hbase - contains the API endpoints for HBase
+                     --- mongo - contains the API endpoints for MongoDB
+                     --- redis - contains the API endpoints for Redis
+               - contains the model directory for each NoSQL database platform 
+               - contains the repository directory for each NoSQL database platform
+               - contains the __init__.py file which is the heart of the
+                 application
+                         --- all NoSQL database configurations are in __init__.py
+
+      --- tests - contains the PyTest files for testing some components
+      --- main.py - imports the create_app() from app/__init__.py
+   
+
+B. Configuration files 
+    --- config_dev.toml - configuration variables written in TOML for development stage
+    
+C. Database Configurations
+   Hbase
+       --- Use version 2.5.5
+
+   Cassandra
+       --- Use version 4.1.3 for Ubuntu distrib
+
+   Redis
+       --- Use version 7.2.3 for Ubuntu distrib
+           or
+           Use version 3.0.504 for Windows
+
+   Mongo
+       --- Use version 7.0 for Windows
+
+   Couchbase
+       --- Use version 7.2.0-5325 for Windows
+
+D. Dependencies
+   --- Create a Python virtual env (e.g., ch07-env) using the venv module first before running the dependency files
+   --- requirements.txt - contains the updated modules just run it inside your venv directory using:
+                  python -m pip install -r requirements.txt --upgrade
+
+E. Running the application:
+   --- Start first ALL the NoSQL servers
+   --- Run the command python main.py inside the enabled ch07-env
