@@ -1,0 +1,57 @@
+========================================================================
+Project Name: Vaccine Reporting Management System (VRMS) - HTTP Digest Auth
+Author: Sherwin John C. Tragura
+Description: This prototype is about an online application that gathers data 
+       from vaccine patients and generates reports from that information. 
+       The raw application manages vaccine, patient, doctor, administration, 
+       and login details.
+
+       This application is a specimen on using HTTP Digest authentication scheme for securing applications.
+
+       The application uses the Application Factory design approach in managing 
+       its source codes and directories.
+========================================================================
+
+A. Project Directory
+--- ch09-api-auth-digest (main project directory)
+      --- modules  - contains all the API modules and their respective components, 
+                        such as the repository, and services
+               - contains the model directory that contains database 
+                 configuration and model classes
+               - contains the __init__.py file which is the heart of the
+                 application, contains all the configurations and creation
+                 of Flask instance
+      --- migrations - contains alembic and all Flask-Migration related files
+      --- flask_session - contains the session files of Flask-Session
+      --- main.py - imports the create_app() from app/__init__.py. automatically
+                gets the password every API accesss to verify validty of access,
+                and manages the nonce, and opaque values from the auth details
+
+B. Configuration files 
+    --- config_dev.toml - configuration variables written in TOML for development stage
+    --- celery_app.py - provides the Celery instance
+    --- celery_config.py - provides the Celery configuration with the Flask instance
+    --- manage.py - provides the Flask-Migrate implementation and setup
+    --- enc_key.txt - a sample encoded password for Fernet cryptography module class
+    
+C. Database Configurations
+   db_dump - contains the vrms_auth_digest.sql dump file, which contains dummy test data
+           - database platform is PostgreSQL 
+
+D. Dependencies
+   --- Generate first the PostgreSQL table schema using the following Flask-Migrate commands:
+         1. python -m flask --app manage.py db init
+         2. python -m flask --app manage.py db migrate -m "Initial migration."
+         3. python -m flask --app manage.py db upgrade
+            python -m flask --app manage.py db downgrade (if schema needs update but modify the run_migrations_****() in env.py if necessary)
+         4. (optional) python -m flask --app manage.py db histort 
+         5. (optional) python -m flask --app manage.py db stamp head
+   --- Run the Redis server first
+   --- Open a new terminal in VS Code and using the ch05-api-auth-digest-env, run Celery at least using this command:
+         celery -A main.celery_app worker --loglevel=info -P solo
+   --- Create a Python virtual env (e.g., ch09-api-auth-digest-env) using the venv module first before running the dependency files
+   --- requirements.txt - contains the updated modules just run it inside your venv directory using:
+                  python -m pip install -r requirements.txt --upgrade
+
+E. Running the application:
+    --- Run the command python main.py inside the enabled ch09-api-auth-digest-env.
