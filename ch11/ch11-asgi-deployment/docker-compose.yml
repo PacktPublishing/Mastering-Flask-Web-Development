@@ -1,0 +1,24 @@
+version: '3.0'
+
+services:
+  api:
+    build: ./ch11-asgi
+    volumes:
+      - ./ch11-asgi/:/usr/src/ch11-asgi/
+    ports:
+      - 8000:8000
+    depends_on:
+      - postgres
+ 
+
+  postgres:
+    image: "bitnami/postgresql:latest" # use latest official postgres version
+    ports:
+      - 5432:5432
+    env_file:
+      - db.env # configure postgres
+    volumes:
+      - database-data:/var/lib/postgresql/data/
+
+volumes:
+    database-data:
