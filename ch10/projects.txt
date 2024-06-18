@@ -1,2 +1,2 @@
 Projects for Chapter 10 (ch10):
-        ---
+        --- Some projects from ch01 to ch09 have the tests folders containing test files for Chapter 10 discussions. Please refer to the appropriate project.
