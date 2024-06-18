@@ -1,0 +1,51 @@
+{% from "macros/flask_segment.html" import render_error_flash, render_success_flash with context %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>VRMS Add Administrator form</title>
+  </head>
+  <body>
+       <p>{{ render_error_flash('error-id')}}
+          {{ render_success_flash('success-id')}}
+       </p>
+	   <form action="{{ request.path }}" method="POST">
+        <input type="hidden" name="csrf_token" value = "{{ csrf_token() }}" />  
+        <label for="username">Username:</label><br>
+        <select name="username">
+            {% for rec in admin%}
+                <option value="{{ rec['username']}}">{{ rec['username'] | upper}}</option>
+            {% else %}
+                <option value="None">None</option>
+            {% endfor %}
+        </select><br/>
+        <label for="adminid">Admin ID:</label><br>
+        <input type="text" name="adminid"><br>
+        <label for="firstname">Firstname:</label><br>
+        <input type="text" name="firstname"><br>
+        <label for="midname">Middlename:</label><br>
+        <input type="text" name="midname"><br>
+        <label for="lastname">Lastname:</label><br>
+        <input type="text" name="lastname"><br>
+        <label for="email">Email:</label><br>
+        <input type="text" name="email"><br>
+        <label for="mobile">Mobile:</label><br>
+        <input type="text" name="mobile"><br>
+        <label for="position">Position:</label><br>
+        <input type="text" name="position"><br>
+        <label for="status">Status:</label><br>
+        <select name="status">
+            <option value="true">OK</option>
+            <option value="false">NOT OK</option>
+        </select><br/>
+        <label for="gender">Gender:</label><br>
+        <select name="gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select><br/>
+        <input type="submit" value="Add Admin Profile">
+       </form>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+{% from "macros/flask_segment.html" import render_error_flash, render_success_flash with context %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>VRMS Add Vaccination Center form</title>
+  </head>
+  <body>
+     <p>{{ render_error_flash('error-id')}}
+        {{ render_success_flash('success-id')}}
+     </p>
+	   <form action="{{ request.path }}" method="POST">
+        <input type="hidden" name="csrf_token" value = "{{ csrf_token() }}" />   
+        <label for="cardid">Vaccination Card ID:</label><br>
+        <input type="text" name="cardid"><br>
+        <label for="patientid">Patient ID:</label><br>
+        <select name="patientid">
+         {% for rec in patients%}
+             <option value="{{ rec['patientid']}}">{{ rec['patientid'] | upper}}</option>
+         {% else %}
+             <option value="None">None</option>
+         {% endfor %}
+        </select><br/>
+         <label for="docid">Doctor ID:</label><br>
+         <select name="docid">
+            {% for rec in docs%}
+                <option value="{{ rec['docid']}}">{{ rec['docid'] | upper}}</option>
+            {% else %}
+                <option value="None">None</option>
+            {% endfor %}
+           </select><br/>
+         <label for="vacid">Vaccine ID:</label><br>
+         <select name="vacid">
+            {% for rec in vaccines%}
+                <option value="{{ rec['vacid']}}">{{ rec['vacid'] | upper}}</option>
+            {% else %}
+                <option value="None">None</option>
+            {% endfor %}
+           </select><br/>
+        <label for="date_vaccinated">Date Vaccinated:</label><br>
+        <input type="date" name="date_vaccinated"><br><br>
+        <input type="submit" value="Add Vaccination Card">
+       </form>
+  </body>
+</html>

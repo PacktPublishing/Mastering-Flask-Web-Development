@@ -1,0 +1,8 @@
+SQLALCHEMY_DATABASE_URI = "postgresql://postgres:admin2255@localhost:5433/vrms_enc"
+SECRET_KEY = "SpOn1ZyV4KE2FTlAUrWRZ_h7o5s"
+FLASK_DEBUG = true
+
+SESSION_LIFETIME = true
+SESSION_TYPE = "filesystem"
+SESSION_FILE_THRESHOLD = 600
+SESSION_PERMANENT = true

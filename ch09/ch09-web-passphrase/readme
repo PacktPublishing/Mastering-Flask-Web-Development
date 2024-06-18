@@ -1,0 +1,49 @@
+========================================================================
+Project Name: Vaccine Reporting Management System (VRMS) - Encrypted SQLAlchemy, HTTPS, Form Validation and Sanitation, Sessions, and X-Response
+Author: Sherwin John C. Tragura
+Description: This prototype is about an online application that gathers data 
+       from vaccine patients and generates reports from that information. 
+       The raw application manages vaccine, patient, doctor, administration, 
+       and login details.
+
+       This application is a specimen on applying Encrypted SQLAlchemy on login table
+       form validation, input sanitation, storing data in sessions,
+       and securing the application using HTTPS.
+       user passwords used for login authentication.
+
+       The application uses the Application Factory design approach in managing 
+       its source codes and directories.
+========================================================================
+
+A. Project Directory
+--- ch09-web-passphrase (main project directory)
+      --- modules  - contains all the view modules and their respective components, 
+                        such the Jinja templates, repository, and services
+               - contains the model directory that contains database 
+                 configuration and model classes
+               - contains the __init__.py file which is the heart of the
+                 application, contains all the configurations and creation
+                 of Flask instance
+      --- migrations - contains alembic and all Flask-Migration related files
+      --- flask_session - contains the session files of Flask-Session
+      --- main.py - imports the create_app() from app/__init__.py, 
+                    utilizes X-headers for securing the server response, and
+                    configuring the HTTPS protocol
+      --- tests - contains PyTest files for testing Flask components
+
+B. Configuration files 
+    --- config_dev.toml - configuration variables written in TOML for development stage
+    --- cert.pem/key.pem - contains the keys for configuring the HTTPS protocol
+    --- manage.py - provides the Flask-Migrate implementation and setup
+    
+C. Database Configurations
+   db_dump - contains the vrms_enc.sql dump file, which contains dummy test data
+           - database platform is PostgreSQL 
+
+D. Dependencies
+   --- Create a Python virtual env (e.g., ch09-web-passphrase-env) using the venv module first before running the dependency files
+   --- requirements.txt - contains the updated modules just run it inside your venv directory using:
+                  python -m pip install -r requirements.txt --upgrade
+
+E. Running the application:
+    --- Run the command python main.py inside the enabled ch09-web-passphrase-env.
