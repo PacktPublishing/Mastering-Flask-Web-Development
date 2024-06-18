@@ -1,0 +1,25 @@
+{% from "macros/flask_segment.html" import render_error_flash, render_success_flash with context %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>VRMS Authenticate Confirm form</title>
+  </head>
+  <body>
+	   <form action="{{ request.path }}" method="POST">
+        <label for="response_type">Response Type:</label><br>
+        <input type="text" name="response_type">
+        <label for="client_id">Client Id:</label><br>
+        <input type="text" name="client_id">
+        <label for="scope">Scope:</label><br>
+        <input type="text" name="scope">
+        <label for="state">Scope:</label><br>
+        <input type="text" name="state">
+        <label for="redirect_uri">Redirect URI:</label><br>
+        <input type="text" name="redirect_uri">
+        <input type="submit" value="Confirm?">
+       </form>
+  </body>
+</html>
