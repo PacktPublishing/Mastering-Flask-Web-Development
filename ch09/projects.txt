@@ -1,9 +1,11 @@
 Projects for Chapter 9 (ch09):
         --- ch09-api-bcrypt - uses bcrypt module
         --- ch09-web-passphrase - web app that uses other authentication-related approaches
+        --- ch09-web-login - web app that uses Flask-Login module
         --- ch09-api-auth-basic - API-based HTTP Basic authentication
         --- ch09-api-auth-digest - API-based HTTP Digest authentication
         --- ch09-api-auth-token - API-based HTTP Token-bearer authentication
         --- ch09-oauth2-password - Web-based Oauth2 Password Grant authentication
         --- ch09-oauth2-code - Web-based OAuth2 Code Grant authentication
         --- ch09-oauth-token - Web-based OAuth2 JWT Token Grant authentication
+        
