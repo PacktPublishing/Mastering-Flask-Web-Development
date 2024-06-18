@@ -1,0 +1,24 @@
+{% from "macros/flask_segment.html" import render_error_flash, render_success_flash with context %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>VRMS OAuth2 Password Grant Flow form</title>
+  </head>
+  <body>
+	   <form action="{{ request.path }}" method="POST">
+        <label for="client_name">Client Name:</label><br>
+        <input type="text" name="client_name">
+        <label for="token_endpoint_auth_method">Token Endpoint Auth Method:</label><br>
+        <select name="token_endpoint_auth_method">
+              <option value="client_secret_basic">client_secret_basic</option>
+              <option value="client_secret_post">client_secret_post</option>
+              <option value="none">none</option>
+        </select>
+        <br/><br/>
+        <input type="submit" value="Add User">
+       </form>
+  </body>
+</html>

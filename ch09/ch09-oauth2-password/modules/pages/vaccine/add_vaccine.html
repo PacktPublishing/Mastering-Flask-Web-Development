@@ -1,0 +1,33 @@
+{% from "macros/flask_segment.html" import render_error_flash, render_success_flash with context %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>VRMS Add Vaccine form</title>
+  </head>
+  <body>
+     <p>{{ render_error_flash('error-id')}}
+        {{ render_success_flash('success-id')}}
+     </p>
+	   <form action="{{ request.path }}" method="POST">
+        <label for="vacid">Vaccine ID:</label><br>
+        <input type="text" name="vacid"><br>
+        <label for="vacname">Vaccine Name:</label><br>
+        <input type="text" name="vacname"><br>
+        <label for="vacdesc">Vaccine Description:</label><br>
+        <input type="text" name="vacdesc"><br>
+        <label for="qty">Qty:</label><br>
+        <input type="number" name="qty"><br>
+        <label for="price">Price:</label><br>
+        <input type="number" step="0.001" name="price"><br>
+        <label for="status">Status:</label><br>
+        <select name="status">
+           <option value="true">OK</option>
+           <option value="false">NOT OK</option>
+        </select><br/>
+        <input type="submit" value="Add Patient Profile">
+       </form>
+  </body>
+</html>

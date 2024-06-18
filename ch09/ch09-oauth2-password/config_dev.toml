@@ -1,0 +1,22 @@
+SQLALCHEMY_DATABASE_URI = "postgresql://postgres:admin2255@localhost:5433/vrms_oauth2"
+SECRET_KEY = "SpOn1ZyV4KE2FTlAUrWRZ_h7o5s"
+FLASK_DEBUG = true
+TESTING = true
+
+AUTHLIB_INSECURE_TRANSPORT = true
+
+CELERY_BROKER_URL = "redis://127.0.0.1:6379/0"
+CELERY_RESULT_BACKEND = "redis://127.0.0.1:6379/0"
+
+[CELERY]
+celery_store_errors_even_if_ignored = true
+task_create_missing_queues = true
+task_store_errors_even_if_ignored = true 
+task_ignore_result = false
+broker_connection_retry_on_startup = true
+task_serializer = "pickle"
+result_serializer = "pickle"
+event_serializer = "json"
+accept_content = ["pickle", "application/json", "application/x-python-serialize"]
+result_accept_content = ["pickle", "application/json", "application/x-python-serialize"]
+
