@@ -1,2 +1,4 @@
 Projects for Chapter 12 (ch12):
-      --- 
+      --- ch12-microservices-interop - Flask, FastAPI, Tornado, and Django mold into one microservices app
+      --- ch12-flask-react - A React client app for ch12-microservices-interop project.
+      --- ch12-flask-flutter - A Flutter client app for ch12-microservices-interop project.
