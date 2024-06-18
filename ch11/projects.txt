@@ -4,4 +4,8 @@ Projects for Chapter 11 (ch11):
       ---  ch11-asgi-deployment - API-based app for deployment to Docker using Docker Compose
       ---  ch11-asgi-dep-kub - API-based app for deployment to Docker using Kubernetes
       ---  ch11-asgi-dep-nginx - API-based app for deployment to Docker with NGINX
+      ---  ch11-guni - API-based app for Gunicorn server
+      ---  ch11-guni-async - API-based app for Gunicorn with UvicornWorker
+      ---  ch11-guni-eventlet - API-based for Gunicorn with Eventlet
+      ---  ch11-guni-gevent - API-based for Gunicorn with Gevent
      
