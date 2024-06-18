@@ -1,0 +1,28 @@
+{% from "macros/flask_segment.html" import render_error_flash, render_success_flash with context %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>VRMS Sign-up form</title>
+  </head>
+  <body>
+       <p>{{ render_error_flash('error-id')}}
+          {{ render_success_flash('success-id')}}
+       </p>
+	   <form action="{{ request.path }}" method="POST">
+        <label for="username">Username:</label><br>
+        <input type="text" name="username"><br>
+        <label for="password">Password:</label><br>
+        <input type="password" name="password"><br>
+        <label for="role">Role:</label><br>
+        <select name="role">
+              <option value="0">Administrator</option>
+              <option value="1">Doctor</option>
+              <option value="2">Patient</option>
+        </select><br/><br/>
+        <input type="submit" value="Add User">
+       </form>
+  </body>
+</html>

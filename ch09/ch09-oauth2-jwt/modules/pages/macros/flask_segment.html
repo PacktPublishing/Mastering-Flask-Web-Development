@@ -1,0 +1,24 @@
+{% macro render_error_flash(class_id) %}
+    {% with errors = get_flashed_messages(category_filter=["error"]) %}
+        {% if errors %}
+            <p>
+            {% for msg in errors %}
+                {{ msg }}
+            {% endfor %}
+            </p>
+        {% endif %}
+    {% endwith %}
+{% endmacro %}
+
+{% macro render_success_flash(class_id)%}
+    {% with success = get_flashed_messages(category_filter=["success"]) %}
+        {% if success %}
+            <p>
+            {% for msg in success %}
+                {{ msg }}
+            {% endfor %}
+            </p>
+        {% endif %}
+    {% endwith %} 
+{% endmacro %}
+
