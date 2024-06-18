@@ -1,0 +1,133 @@
+
+schema {
+    query: Query
+    mutation: Mutation
+}
+
+# These are the GraphQL model classes
+type Category {
+    id: ID!
+    name: String!
+}
+
+
+type ComplaintType {
+    id: ID!
+    name: String
+}
+
+
+type Complainant {
+    id: ID!
+    firstname: String!
+    lastname: String!
+    middlename: String!
+    email: String!
+    date_registered: String!
+}
+
+type Complaint {
+   id: ID!
+   ticketId: String!
+   catid: Int!
+   complainantId: Int!
+   ctype: Int!
+} 
+
+type ComplaintDetails {
+    id: ID!
+    compid: Int!
+    statement: String!
+    status: String!
+    resolution: String!
+    date_resolved: String!
+}
+
+# These are the input types
+input ComplainantInput {
+    firstname: String!
+    lastname: String!
+    middlename: String!
+    email: String!
+    date_registered: String!
+}
+
+input ComplaintInput {
+   ticketId: String!
+   complainantId: Int!
+   catid: Int!
+   ctype: Int!
+}
+
+
+input ComplaintDetailsInput {
+    compid: Int!
+    statement: String!
+    status: String!
+    resolution: String!
+    date_resolved: String!
+}
+
+# These are the result types
+type ComplainantInsertResult {
+    success: Boolean!
+    errors: [String]
+    model: Complainant!
+}
+
+type ComplaintInsertResult {
+    success: Boolean!
+    errors: [String]
+    model: Complaint!
+}
+
+type CategoryInsertResult {
+    success: Boolean!
+    errors: [String]
+    model: Category!
+}
+
+type ComplaintTypeInsertResult {
+    success: Boolean!
+    errors: [String]
+    model: ComplaintType!
+}
+
+type ComplainantListResult {
+    success: Boolean!
+    errors: [String]
+    complainants: [Complainant]!
+}
+
+type ComplaintListResult {
+    success: Boolean!
+    errors: [String]
+    complaints: [Complaint]!
+}
+
+type CategoryListResult {
+    success: Boolean!
+    errors: [String]
+    categories: [Category]!
+}
+
+type ComplaintTypeListResult {
+    success: Boolean!
+    errors: [String]
+    complaintTypes: [ComplaintType]!
+}
+
+# The GraphQL operations
+type Query {
+    listAllComplainants: ComplainantListResult!
+    listAllComplaints: ComplaintListResult!
+    listAllCategories: CategoryListResult!
+    listAllComplaintTypes: ComplaintTypeListResult!
+}
+
+type Mutation {
+    createCategory(name: String!): CategoryInsertResult!
+    createComplaintType(name: String!): ComplaintTypeInsertResult!
+    createComplainant(input: ComplainantInput!): ComplainantInsertResult!
+    createComplaint(input: ComplaintInput!): ComplaintInsertResult!
+}

@@ -1,0 +1,40 @@
+========================================================================
+Project Name: Online Library Management System (OLMS)
+Author: Sherwin John C. Tragura
+Description: This prototype is an Online Library Management system 
+        implemented using Flask, FastAPI, Django, and Tornado sub-applications 
+        integrated into new technology solutions, such as Jaeger tool, GraphQL, 
+        React, and Flutter.
+========================================================================
+
+A. Project Directory
+--- ch12-microservices-interop (main project directory)
+      --- modules  - the main Flask project
+               - contains User modules
+               - contains the repository with Peewee ORM
+      -- modules_django - the Django sub-project that builds the student borrowe information
+      -- modules_fastapi - the FastAPI sub-project that that builds the faculty borrower information
+      -- modules_sub_flask - the Flask sub-project that builds the GraphQL application
+      -- modules_tornado - the Tornado sub-porject that creates the welcome or home page.
+      --- migrations - contains alembic and all Flask-Migration related files
+
+      --- main_fastapi.py - creates the FastAPI instance for the FastAPI sub-project
+      --- main_sub_flask.py - creates the Flask instance for the GraphQL application
+      --- schema.graphql - the GraphQL definition file
+
+B. Configuration files 
+    --- config_dev.toml - configuration variables written in TOML for development stage
+    --- config_dev_sub.toml - the configuration variables for the Flask sub-application
+    
+    
+C. Database Configurations
+   db_dump - contains the ovs.sql dump file, which contains dummy test data
+           - database platform is PostgreSQL 
+
+D. Dependencies
+   --- Create a Python virtual env (e.g., ch12-microservices-interop-env) using the venv module first before running the dependency files
+   --- requirements.txt - contains the updated modules just run it inside your venv directory using:
+                  python -m pip install -r requirements.txt --upgrade
+
+E. Running the application:
+   --- Run the command python main.py inside the enabled ch12-microservices-interop-env.

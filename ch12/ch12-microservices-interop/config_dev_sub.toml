@@ -1,0 +1,2 @@
+SECRET_KEY = "f81e5f738ed367c97dba5d60977aa6f7"
+FLASK_DEBUG = true
