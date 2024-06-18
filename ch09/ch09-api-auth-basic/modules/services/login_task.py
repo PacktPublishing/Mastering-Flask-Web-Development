@@ -1,0 +1,18 @@
+from celery import shared_task
+from modules.repository.login import LoginRepository
+from modules.models.config import db_session
+from asyncio import run
+
+@shared_task(ignore_result=False)
+def get_user_task_wrapper(username):
+     async def get_user_task(username):
+        try:
+            async with db_session() as sess:
+               async with sess.begin(): 
+                    repo = LoginRepository(sess)
+                    records = await repo.select_login_username(username)
+                    return records[0]
+        except Exception as e:
+            print(e)
+            return None
+     return run(get_user_task(username))
