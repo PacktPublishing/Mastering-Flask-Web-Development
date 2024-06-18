@@ -46,6 +46,5 @@ E. Running the application:
          2. pem watch
          3. pem migrate
           
-   --- Deploy the ch11-asgi app to Docker image
-       Deploy PostgreSQL image and run the script file.
-       Run the application using the docker-compose up command
+   --- To run the application, run the command:
+       gunicorn --bind 127.0.0.1:8000 main:app -w 1 -k gevent --threads 1 
