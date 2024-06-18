@@ -1,5 +1,5 @@
 ========================================================================
-Project Name: Vaccine Reporting Management System (VRMS) - Encrypted SQLAlchemy, HTTPS, Form Validation and Sanitation, Sessions, and X-Response
+Project Name: Vaccine Reporting Management System (VRMS) - Encrypted SQLAlchemy, HTTPS, Form Validation and Sanitation, Sessions, and X-Response headers
 Author: Sherwin John C. Tragura
 Description: This prototype is about an online application that gathers data 
        from vaccine patients and generates reports from that information. 
