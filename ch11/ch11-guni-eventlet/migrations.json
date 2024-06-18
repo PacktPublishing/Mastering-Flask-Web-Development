@@ -1,0 +1,20 @@
+{
+  "prerun": "# some code here",
+  "directory": "migrations",
+  "history": "migratehistory",
+  "models": [
+    "app.models.db.Login",
+    "app.models.db.Administrator",
+    "app.models.db.Customer",
+    "app.models.db.Brand",
+    "app.models.db.Category",
+    "app.models.db.Discount",
+    "app.models.db.Product",
+    "app.models.db.Supplier",
+    "app.models.db.InvoiceRequest",
+    "app.models.db.Stock",
+    "app.models.db.Cart",
+    "app.models.db.CartItem",
+    "app.models.db.Purchase"
+  ]
+}
