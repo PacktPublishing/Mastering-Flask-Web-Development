@@ -3,5 +3,5 @@ Projects for Chapter 11 (ch11):
       ---  Apache.zip - the configuration files needed for the Apache HTTP Server
       ---  ch11-asgi-deployment - API-based app for deployment to Docker using Docker Compose
       ---  ch11-asgi-dep-kub - API-based app for deployment to Docker using Kubernetes
-      ---  ch11-asgi-dep-nginx - API based app for deployment to Docker with NGINX
+      ---  ch11-asgi-dep-nginx - API-based app for deployment to Docker with NGINX
      
