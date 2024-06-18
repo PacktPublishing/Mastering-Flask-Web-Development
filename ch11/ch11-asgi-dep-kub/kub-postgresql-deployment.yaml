@@ -1,0 +1,64 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ch11-postgresql
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ch11-postgresql
+  template:
+    metadata:
+      labels:
+        app: ch11-postgresql
+    spec:
+      terminationGracePeriodSeconds: 180
+      containers:
+        - name: ch11-postgresql
+          image: bitnami/postgresql:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: tcp-5432
+              containerPort: 5432
+          env:
+          - name: POSTGRES_USER
+            valueFrom:
+              secretKeyRef:
+                name: postgres-credentials
+                key: user
+          - name: POSTGRES_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: postgres-credentials
+                key: password
+          - name: POSTGRES_DB
+            value: ogs
+          - name: PGDATA
+            value: /var/lib/postgresql/data/pgdata
+          volumeMounts:
+            - name: data-storage-volume
+              mountPath: /var/lib/postgresql/data
+          resources:
+            requests:
+              cpu: "50m"
+              memory: "256Mi"
+            limits:
+              cpu: "500m"
+              memory: "256Mi"
+      volumes:
+        - name: data-storage-volume
+          persistentVolumeClaim:
+            claimName: postgresql-db-claim
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ch11-postgresql-service
+  labels:
+    name: ch11-postgresql
+spec:
+  ports:
+    - port: 5432
+  selector:
+    app: ch11-postgresql

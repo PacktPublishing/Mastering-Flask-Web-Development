@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ch11-app
+  labels:
+      name: ch11-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ch11-app
+  template:
+    metadata:
+      labels:
+        app: ch11-app
+    spec:
+      containers:
+      - name: ch11-app
+        image: sjctrags/ch11-app:latest
+        env:
+            - name: SERVICE_POSTGRES_SERVICE_HOST
+              value: ch11-postgresql-service.default.svc.cluster.local
+            - name: POSTGRES_DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-credentials
+                  key: user
+            - name: POSTGRES_DB_PSW
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-credentials
+                  key: password
+        ports:
+        - containerPort: 8000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ch11-app-service
+spec:
+  type: LoadBalancer 
+  selector:
+    app: ch11-app
+  ports:
+    - protocol: TCP
+      port: 8000
+      targetPort: 8000
