@@ -1,1 +1,6 @@
-
+Projects for Chapter 9 (ch09):
+        --- ch09-api-bcrypt - uses bcrypt module
+        --- ch09-web-passphrase - web app that uses other authentication-related approaches
+        --- ch09-api-auth-basic - API-based HTTP Basic authentication
+        --- ch09-api-auth-digest - API-based HTTP Digest authentication
+        --- ch09-api-auth-token - API-based HTTP Token-bearer authentication
