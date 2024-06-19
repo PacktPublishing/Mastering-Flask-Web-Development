@@ -13,7 +13,7 @@ click-didyoumean==0.3.0
 click-plugins==1.1.1
 click-repl==0.3.0
 colorama==0.4.6
-cryptography==42.0.1
+cryptography==42.0.4
 Flask==3.0.1
 Flask-Migrate==4.0.5
 Flask-SQLAlchemy==3.1.1
