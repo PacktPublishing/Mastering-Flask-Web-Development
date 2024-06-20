@@ -1,0 +1,48 @@
+========================================================================
+Project Name: Online Grocery Application (OGA)
+Author: Sherwin John C. Tragura
+Description: This prototype is a small-scale API-based e-commerce application 
+       for a grocery store. It has the typical ordering, purchasing, inventory, 
+       and user management modules.
+
+      The application will use uWSGI to run the application.
+     
+      The application uses the Blueprint and Application Factory design approaches in managing its source codes and directories..
+========================================================================
+
+A. Project Directory
+--- ch11-uwsgi (main project directory)
+      --- app  - contains all the modules and their respective components, 
+                        such API endpoint functions and repository
+               - contains the model directory that contains database 
+                 configuration and model classes of the Peewee ORM
+               - contains the __init__.py file which is the heart of the
+                 application
+
+      --- main.py - imports the create_app() from app/__init__.py and manages the database connectivity
+
+B. Configuration files 
+    --- config_dev.toml - configuration variables written in TOML for development stage
+        
+C. Database Configurations
+   db_dump - contains the ogs.sql dump file, which contains dummy test data
+           - database platform is PostgreSQL 
+
+D. Dependencies
+   --- Create a Python virtual env (e.g., ch11-guni-env) using the venv module first before running the dependency files
+   --- requirements.txt - contains the updated modules just run it inside your venv directory using:
+                  python -m pip install -r requirements.txt
+
+E. Running the application:
+   --- Generate first the PostgreSQL table schema using the following Peewee-Migrations commands:
+         1. pem init
+         2. pem add app.models.db.Login
+            pem add app.models.db.Administrator
+            pem add app.models.db.Category
+            ...
+            ...
+         2. pem watch
+         3. pem migrate
+          
+   --- To run the application, run the command:
+      uwsgi --http 127.0.0.1:8000 --master -p 4 -w main:app --enable-threads
